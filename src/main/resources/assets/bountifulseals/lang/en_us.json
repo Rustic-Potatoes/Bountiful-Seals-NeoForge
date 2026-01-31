@@ -1,0 +1,15 @@
+{
+  "item.bountifulseals.beach_ball": "Beach Ball",
+  "item.bountifulseals.ice_shard": "Ice Shard",
+  "item.bountifulseals.harp_seal_spawn_egg": "Harp Seal Spawn Egg",
+  "item.bountifulseals.arctic_cod_spawn_egg": "Arctic Cod Spawn Egg",
+  "item.bountifulseals.arctic_cod": "Raw Arctic Cod",
+  "item.bountifulseals.cooked_arctic_cod": "Cooked Arctic Cod",
+
+  "block.bountifulseals.snow_clumps": "Snow Clumps",
+
+  "entity.mccourse.harp_seal": "Harp Seal",
+  "entity.mccourse.arctic_cod": "Arctic Cod",
+
+  "creativetab.bountifulseals.seal_tab": "Bountiful Seals"
+}

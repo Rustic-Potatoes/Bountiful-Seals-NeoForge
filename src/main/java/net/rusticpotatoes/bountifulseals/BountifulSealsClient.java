@@ -1,5 +1,6 @@
 package net.rusticpotatoes.bountifulseals;
 
+import net.minecraft.client.renderer.entity.EntityRenderers;
 import net.neoforged.api.distmarker.Dist;
 import net.neoforged.bus.api.SubscribeEvent;
 import net.neoforged.fml.ModContainer;
@@ -8,6 +9,9 @@ import net.neoforged.fml.common.Mod;
 import net.neoforged.fml.event.lifecycle.FMLClientSetupEvent;
 import net.neoforged.neoforge.client.gui.ConfigurationScreen;
 import net.neoforged.neoforge.client.gui.IConfigScreenFactory;
+import net.rusticpotatoes.bountifulseals.entity.ModEntities;
+import net.rusticpotatoes.bountifulseals.entity.client.arctic_cod.ArcticCodRenderer;
+import net.rusticpotatoes.bountifulseals.entity.client.harp_seal.HarpSealRenderer;
 
 // This class will not load on dedicated servers. Accessing client side code from here is safe.
 @Mod(value = BountifulSeals.MOD_ID, dist = Dist.CLIENT)
@@ -15,14 +19,14 @@ import net.neoforged.neoforge.client.gui.IConfigScreenFactory;
 @EventBusSubscriber(modid = BountifulSeals.MOD_ID, value = Dist.CLIENT)
 public class BountifulSealsClient {
     public BountifulSealsClient(ModContainer container) {
-        // Allows NeoForge to create a config screen for this mod's configs.
-        // The config screen is accessed by going to the Mods screen > clicking on your mod > clicking on config.
-        // Do not forget to add translations for your config options to the en_us.json file.
-        container.registerExtensionPoint(IConfigScreenFactory.class, ConfigurationScreen::new);
+        container.registerExtensionPoint(IConfigScreenFactory.class, ConfigurationScreen::new); // Config
     }
 
     @SubscribeEvent
     static void onClientSetup(FMLClientSetupEvent event) {
+        EntityRenderers.register(ModEntities.HARP_SEAL.get(), HarpSealRenderer::new);
+        EntityRenderers.register(ModEntities.ARCTIC_COD.get(), ArcticCodRenderer::new);
 
     }
+
 }

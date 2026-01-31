@@ -1,0 +1,14 @@
+{
+  "type": "minecraft:smelting",
+  "category": "food",
+  "cookingtime": 200,
+  "experience": 0.25,
+  "group": "arctic_cod",
+  "ingredient": {
+    "item": "bountifulseals:arctic_cod"
+  },
+  "result": {
+    "count": 1,
+    "id": "bountifulseals:cooked_arctic_cod"
+  }
+}

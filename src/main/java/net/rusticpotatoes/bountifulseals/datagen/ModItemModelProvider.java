@@ -16,6 +16,7 @@ public class ModItemModelProvider extends ItemModelProvider {
         basicItem(ModItems.BEACH_BALL.get());
         basicItem(ModItems.ARCTIC_COD.get());
         basicItem(ModItems.COOKED_ARCTIC_COD.get());
+        basicItem(ModItems.ARCTIC_COD_BUCKET.get());
 
         withExistingParent(ModItems.HARP_SEAL_SPAWN_EGG.getId().getPath(), mcLoc("item/template_spawn_egg"));
         withExistingParent(ModItems.ARCTIC_COD_SPAWN_EGG.getId().getPath(), mcLoc("item/template_spawn_egg"));

@@ -65,6 +65,11 @@ public class BountifulSeals {
     private void addCreative(BuildCreativeModeTabContentsEvent event) {
         if(event.getTabKey() == CreativeModeTabs.TOOLS_AND_UTILITIES) {
             event.accept(ModItems.BEACH_BALL);
+            event.insertAfter(
+                    Items.COD_BUCKET.getDefaultInstance(),
+                    ModItems.ARCTIC_COD_BUCKET.get().getDefaultInstance(),
+                    CreativeModeTab.TabVisibility.PARENT_AND_SEARCH_TABS
+            );
         }
         if(event.getTabKey() == CreativeModeTabs.SPAWN_EGGS) {
             event.accept(ModItems.HARP_SEAL_SPAWN_EGG);

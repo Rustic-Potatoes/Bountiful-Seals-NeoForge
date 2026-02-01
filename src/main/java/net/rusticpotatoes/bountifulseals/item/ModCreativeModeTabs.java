@@ -24,6 +24,8 @@ public class ModCreativeModeTabs {
                         output.accept(ModItems.ARCTIC_COD_SPAWN_EGG);
                         output.accept(ModItems.ARCTIC_COD);
                         output.accept(ModItems.COOKED_ARCTIC_COD);
+                        output.accept(ModItems.ARCTIC_COD_BUCKET);
+
                         output.accept(ModBlocks.SNOW_CLUMPS);
                     }).build());
 

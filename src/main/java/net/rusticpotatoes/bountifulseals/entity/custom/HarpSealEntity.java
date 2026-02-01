@@ -76,6 +76,11 @@ public class HarpSealEntity extends Animal {
     }
 
     @Override
+    public float getAgeScale() {
+        return this.isBaby() ? 0.6F : 1.0F;
+    }
+
+    @Override
     protected void playStepSound(BlockPos pos, BlockState state) {
         playSound(SoundEvents.POLAR_BEAR_STEP, 0.15F, 0.2f);
     }

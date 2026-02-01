@@ -16,8 +16,8 @@ import net.rusticpotatoes.bountifulseals.entity.custom.HarpSealEntity;
 
 public class HarpSealModel<T extends HarpSealEntity> extends HierarchicalModel<T> {
 
-    // This layer location should be baked with EntityRendererProvider.Context in the entity renderer and passed into this model's constructor
     public static final ModelLayerLocation LAYER_LOCATION = new ModelLayerLocation(ResourceLocation.fromNamespaceAndPath(BountifulSeals.MOD_ID, "harp_seal"), "root");
+
     private final ModelPart root;
     private final ModelPart main;
     private final ModelPart head;
@@ -97,8 +97,8 @@ public class HarpSealModel<T extends HarpSealEntity> extends HierarchicalModel<T
         this.root().getAllParts().forEach(ModelPart::resetPose);
         this.applyHeadRotation(netHeadYaw, headPitch);
 
-        this.animateWalk(HarpSealAnimations.walking, limbSwing, limbSwingAmount, 2f, 2.5f);
-        this.animate(entity.idleAnimationState, HarpSealAnimations.idle, ageInTicks, 1f);
+        this.animateWalk(HarpSealAnimations.WALK_ANIM, limbSwing, limbSwingAmount, 2f, 2.5f);
+        this.animate(entity.idleAnimationState, HarpSealAnimations.IDLE_ANIM, ageInTicks, 1f);
     }
 
     private void applyHeadRotation(float headYaw, float headPitch) {

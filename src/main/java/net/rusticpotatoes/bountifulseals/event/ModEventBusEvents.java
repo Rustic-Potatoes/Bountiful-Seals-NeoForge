@@ -9,6 +9,7 @@ import net.rusticpotatoes.bountifulseals.BountifulSeals;
 import net.rusticpotatoes.bountifulseals.entity.ModEntities;
 import net.rusticpotatoes.bountifulseals.entity.client.arctic_cod.ArcticCodRenderer;
 import net.rusticpotatoes.bountifulseals.entity.client.harp_seal.HarpSealModel;
+import net.rusticpotatoes.bountifulseals.entity.client.harp_seal.HarpSealPupModel;
 import net.rusticpotatoes.bountifulseals.entity.custom.ArcticCodEntity;
 import net.rusticpotatoes.bountifulseals.entity.custom.HarpSealEntity;
 
@@ -17,6 +18,7 @@ public class ModEventBusEvents {
     @SubscribeEvent
     public static void registerLayers(EntityRenderersEvent.RegisterLayerDefinitions event) {
         event.registerLayerDefinition(HarpSealModel.LAYER_LOCATION, HarpSealModel::createBodyLayer);
+        event.registerLayerDefinition(HarpSealPupModel.LAYER_LOCATION, HarpSealPupModel::createBodyLayer);
         event.registerLayerDefinition(ArcticCodRenderer.LAYER_LOCATION, CodModel::createBodyLayer);
 
     }

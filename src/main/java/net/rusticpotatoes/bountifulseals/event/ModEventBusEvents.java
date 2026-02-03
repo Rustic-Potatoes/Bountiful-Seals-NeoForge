@@ -1,10 +1,13 @@
 package net.rusticpotatoes.bountifulseals.event;
 
 import net.minecraft.client.model.CodModel;
+import net.minecraft.world.entity.SpawnPlacementTypes;
+import net.minecraft.world.level.levelgen.Heightmap;
 import net.neoforged.bus.api.SubscribeEvent;
 import net.neoforged.fml.common.EventBusSubscriber;
 import net.neoforged.neoforge.client.event.EntityRenderersEvent;
 import net.neoforged.neoforge.event.entity.EntityAttributeCreationEvent;
+import net.neoforged.neoforge.event.entity.RegisterSpawnPlacementsEvent;
 import net.rusticpotatoes.bountifulseals.BountifulSeals;
 import net.rusticpotatoes.bountifulseals.entity.ModEntities;
 import net.rusticpotatoes.bountifulseals.entity.client.arctic_cod.ArcticCodRenderer;
@@ -27,5 +30,16 @@ public class ModEventBusEvents {
     public static void registerAttributes(EntityAttributeCreationEvent event) {
         event.put(ModEntities.HARP_SEAL.get(), HarpSealEntity.createAttribute().build());
         event.put(ModEntities.ARCTIC_COD.get(), ArcticCodEntity.createAttributes().build());
+    }
+
+    @SubscribeEvent
+    public static void registerSpawnPlacement(RegisterSpawnPlacementsEvent event) {
+        event.register(
+                ModEntities.HARP_SEAL.get(),
+                SpawnPlacementTypes.ON_GROUND,
+                Heightmap.Types.MOTION_BLOCKING_NO_LEAVES,
+                HarpSealEntity::checkHarpSealSpawnRules,
+                RegisterSpawnPlacementsEvent.Operation.REPLACE
+                );
     }
 }

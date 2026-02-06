@@ -8,9 +8,12 @@
   "item.bountifulseals.arctic_cod_bucket": "Bucket of Arctic Cod",
 
   "block.bountifulseals.snow_clumps": "Snow Clumps",
+  "block.bountifulseals.crate": "Crate",
 
   "entity.mccourse.harp_seal": "Harp Seal",
   "entity.mccourse.arctic_cod": "Arctic Cod",
+
+  "container.bountifulseals.crate": "Crate",
 
   "creativetab.bountifulseals.seal_tab": "Bountiful Seals"
 }

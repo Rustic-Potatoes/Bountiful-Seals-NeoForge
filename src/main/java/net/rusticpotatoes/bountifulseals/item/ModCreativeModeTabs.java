@@ -27,6 +27,7 @@ public class ModCreativeModeTabs {
                         output.accept(ModItems.ARCTIC_COD_BUCKET);
 
                         output.accept(ModBlocks.SNOW_CLUMPS);
+                        output.accept(ModBlocks.CRATE);
                     }).build());
 
     public static void register(IEventBus eventBus) {

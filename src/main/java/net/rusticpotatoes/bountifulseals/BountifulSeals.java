@@ -15,6 +15,8 @@ import net.neoforged.neoforge.common.NeoForge;
 import net.neoforged.neoforge.event.BuildCreativeModeTabContentsEvent;
 import net.neoforged.neoforge.event.server.ServerStartingEvent;
 import net.rusticpotatoes.bountifulseals.block.ModBlocks;
+import net.rusticpotatoes.bountifulseals.block.blockentity.ModBlockEntities;
+import net.rusticpotatoes.bountifulseals.block.blockentity.custom.ModMenus;
 import net.rusticpotatoes.bountifulseals.entity.ModEntities;
 import net.rusticpotatoes.bountifulseals.item.ModCreativeModeTabs;
 import net.rusticpotatoes.bountifulseals.item.ModItems;
@@ -41,7 +43,8 @@ public class BountifulSeals {
         ModBlocks.register(modEventBus);
         ModCreativeModeTabs.register(modEventBus);
         ModEntities.register(modEventBus);
-
+        ModBlockEntities.register(modEventBus);
+        ModMenus.register(modEventBus);
 
 
 

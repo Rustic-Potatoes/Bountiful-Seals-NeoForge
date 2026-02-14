@@ -7,8 +7,10 @@ import net.minecraft.tags.ItemTags;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.item.crafting.*;
 import net.minecraft.world.level.ItemLike;
+import net.neoforged.neoforge.common.Tags;
 import net.neoforged.neoforge.common.conditions.IConditionBuilder;
 import net.rusticpotatoes.bountifulseals.BountifulSeals;
+import net.rusticpotatoes.bountifulseals.block.ModBlocks;
 import net.rusticpotatoes.bountifulseals.item.ModItems;
 
 import java.util.List;
@@ -27,6 +29,17 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
                 .requires(Items.RED_WOOL)
                 .requires(Items.STRING)
                 .unlockedBy("has_wool", has(ItemTags.WOOL)).save(recipeOutput);
+
+        ShapedRecipeBuilder.shaped(RecipeCategory.MISC, ModBlocks.CRATE)
+                .pattern("IWI")
+                .pattern("WCW")
+                .pattern("IWI")
+                .define('I', Tags.Items.INGOTS_IRON)
+                .define('W', Tags.Items.STRIPPED_WOODS)
+                .define('C', Tags.Items.CHESTS_WOODEN)
+                .unlockedBy("has_iron", has(Tags.Items.INGOTS_IRON)).save(recipeOutput);
+
+
 
         smeltingRecipe(recipeOutput, List.of(ModItems.ARCTIC_COD), RecipeCategory.FOOD, ModItems.COOKED_ARCTIC_COD.get(),
                 0.25f, 200, "arctic_cod" );

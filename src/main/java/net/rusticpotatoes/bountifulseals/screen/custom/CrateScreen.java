@@ -29,17 +29,18 @@ public class CrateScreen extends AbstractContainerScreen<CrateMenu> {
     public void render(GuiGraphics guiGraphics, int mouseX, int mouseY, float partialTick) {
         super.render(guiGraphics, mouseX, mouseY, partialTick);
         this.renderTooltip(guiGraphics, mouseX, mouseY);
+
+        renderSlotTooltip(guiGraphics, 134, -15, mouseX, mouseY, "container.bountifulseals.crate.item_frame_tooltip");
+        renderSlotTooltip(guiGraphics, 170, -15, mouseX, mouseY, "container.bountifulseals.crate.filter_tooltip");
+
+
         if (!this.menu.blockEntity.hasItemFrame()) {
                 int x = this.leftPos + 134;
-                int y = this.topPos + -15;
+                int y = this.topPos - 15;
 
             guiGraphics.blit(ITEM_FRAME_TEXTURE, x, y, 0, 0, 16, 16, 16, 16);
         }
-
-
-
     }
-
 
     @Override
     protected void renderLabels(GuiGraphics guiGraphics, int mouseX, int mouseY) {
@@ -58,8 +59,19 @@ public class CrateScreen extends AbstractContainerScreen<CrateMenu> {
                 118,
                 0x404040,
                 false
-        );
+        );;
+    }
 
+    private void renderSlotTooltip(GuiGraphics guiGraphics, int x, int y, int mouseX, int mouseY, String tranlatableText) {
+        if ((mouseX >= this.leftPos + x && mouseX <= this.leftPos + x + 16) && (mouseY >= this.topPos + y && mouseY <= this.topPos + y + 16) &&  !(this.getSlotUnderMouse() != null && this.getSlotUnderMouse().hasItem())) {
+            guiGraphics.renderTooltip(
+                    this.font,
+                    Component.translatable(tranlatableText),
+                    mouseX,
+                    mouseY
+            );
+        }
 
     }
+
 }

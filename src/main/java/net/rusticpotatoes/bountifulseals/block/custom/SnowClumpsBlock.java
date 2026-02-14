@@ -10,8 +10,8 @@ import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.material.Fluid;
 
 public class SnowClumpsBlock extends PinkPetalsBlock {
-    public SnowClumpsBlock(Properties p_273335_) {
-        super(p_273335_);
+    public SnowClumpsBlock(Properties properties) {
+        super(properties);
     }
 
     @Override

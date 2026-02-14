@@ -1,25 +1,26 @@
 package net.rusticpotatoes.bountifulseals.screen.slot;
 
+import net.minecraft.world.SimpleContainer;
 import net.minecraft.world.entity.player.Player;
+import net.minecraft.world.inventory.Slot;
 import net.minecraft.world.item.ItemStack;
-import net.neoforged.neoforge.items.IItemHandler;
-import net.neoforged.neoforge.items.SlotItemHandler;
-import net.rusticpotatoes.bountifulseals.block.blockentity.custom.CrateBlockEntity;
+import net.minecraft.world.item.Items;
+import net.rusticpotatoes.bountifulseals.block.custom.crate.CrateBlockEntity;
 
-public class FilterSlot extends SlotItemHandler {
+public class FilterSlot extends Slot {
 
     private final CrateBlockEntity block_entity;
 
-    public FilterSlot(CrateBlockEntity blockEntity, IItemHandler itemHandler, int index, int xPosition, int yPosition) {
-        super(itemHandler, index, xPosition, yPosition);
+    public FilterSlot(CrateBlockEntity blockEntity, int index, int xPosition, int yPosition) {
+        super(new SimpleContainer(1), index, xPosition, yPosition);
         this.block_entity = blockEntity;
     }
 
 
     @Override
     public boolean mayPlace(ItemStack stack) {
-        if (!stack.isEmpty() && this.block_entity.isEmpty() && block_entity.getFilterItem().isEmpty()) {
-            block_entity.setFilterItem(stack.copyWithCount(1));
+        if (!stack.isEmpty() && this.block_entity.isEmpty() && (this.block_entity.getFilter() == Items.AIR)) {
+            block_entity.setFilter(stack.getItem());
         }
         return false;
     }
@@ -31,10 +32,19 @@ public class FilterSlot extends SlotItemHandler {
 
     @Override
     public boolean mayPickup(Player player) {
-        if (this.block_entity.isEmpty() && !this.block_entity.getFilterItem().isEmpty()) {
-            block_entity.setFilterItem(ItemStack.EMPTY);
+        if (this.block_entity.isEmpty() && (this.block_entity.getFilter() != Items.AIR)) {
+            block_entity.setFilter(Items.AIR);
         }
          return false;
     }
 
+    @Override
+    public ItemStack getItem() {
+        return new ItemStack(block_entity.getFilter());
+    }
+
+    @Override
+    public boolean hasItem() {
+        return (this.block_entity.getFilter() != Items.AIR);
+    }
 }

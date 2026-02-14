@@ -7,10 +7,13 @@ import net.neoforged.fml.ModContainer;
 import net.neoforged.fml.common.EventBusSubscriber;
 import net.neoforged.fml.common.Mod;
 import net.neoforged.fml.event.lifecycle.FMLClientSetupEvent;
+import net.neoforged.neoforge.client.event.EntityRenderersEvent;
 import net.neoforged.neoforge.client.event.RegisterMenuScreensEvent;
 import net.neoforged.neoforge.client.gui.ConfigurationScreen;
 import net.neoforged.neoforge.client.gui.IConfigScreenFactory;
-import net.rusticpotatoes.bountifulseals.block.blockentity.custom.ModMenus;
+import net.rusticpotatoes.bountifulseals.block.ModBlockEntities;
+import net.rusticpotatoes.bountifulseals.block.custom.crate.client.CrateBlockRenderer;
+import net.rusticpotatoes.bountifulseals.screen.menu.ModMenus;
 import net.rusticpotatoes.bountifulseals.entity.ModEntities;
 import net.rusticpotatoes.bountifulseals.entity.client.arctic_cod.ArcticCodRenderer;
 import net.rusticpotatoes.bountifulseals.entity.client.harp_seal.HarpSealRenderer;
@@ -29,6 +32,11 @@ public class BountifulSealsClient {
     static void onClientSetup(FMLClientSetupEvent event) {
         EntityRenderers.register(ModEntities.HARP_SEAL.get(), HarpSealRenderer::new);
         EntityRenderers.register(ModEntities.ARCTIC_COD.get(), ArcticCodRenderer::new);
+    }
+
+    @SubscribeEvent
+    public static void registerBER(EntityRenderersEvent.RegisterRenderers event) {
+        event.registerBlockEntityRenderer(ModBlockEntities.CRATE_BE.get(), CrateBlockRenderer::new);
     }
 
     @SubscribeEvent

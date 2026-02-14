@@ -7,11 +7,11 @@ import net.minecraft.network.chat.Component;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.entity.player.Inventory;
 import net.rusticpotatoes.bountifulseals.BountifulSeals;
-import net.rusticpotatoes.bountifulseals.block.blockentity.custom.CrateMenu;
+import net.rusticpotatoes.bountifulseals.screen.menu.CrateMenu;
 
 public class CrateScreen extends AbstractContainerScreen<CrateMenu> {
-    private static final ResourceLocation GUI_TEXTURE =
-            ResourceLocation.fromNamespaceAndPath(BountifulSeals.MOD_ID, "textures/gui/crate/crate_gui.png");
+    private static final ResourceLocation GUI_TEXTURE = ResourceLocation.fromNamespaceAndPath(BountifulSeals.MOD_ID, "textures/gui/crate/crate_gui.png");
+    private static final ResourceLocation ITEM_FRAME_TEXTURE = ResourceLocation.fromNamespaceAndPath(BountifulSeals.MOD_ID, "textures/gui/crate/item_frame_icon.png");
 
     public CrateScreen(CrateMenu menu, Inventory playerInventory, Component title) {
         super(menu, playerInventory, title);
@@ -29,6 +29,15 @@ public class CrateScreen extends AbstractContainerScreen<CrateMenu> {
     public void render(GuiGraphics guiGraphics, int mouseX, int mouseY, float partialTick) {
         super.render(guiGraphics, mouseX, mouseY, partialTick);
         this.renderTooltip(guiGraphics, mouseX, mouseY);
+        if (!this.menu.blockEntity.hasItemFrame()) {
+                int x = this.leftPos + 134;
+                int y = this.topPos + -15;
+
+            guiGraphics.blit(ITEM_FRAME_TEXTURE, x, y, 0, 0, 16, 16, 16, 16);
+        }
+
+
+
     }
 
 
@@ -50,5 +59,7 @@ public class CrateScreen extends AbstractContainerScreen<CrateMenu> {
                 0x404040,
                 false
         );
+
+
     }
 }

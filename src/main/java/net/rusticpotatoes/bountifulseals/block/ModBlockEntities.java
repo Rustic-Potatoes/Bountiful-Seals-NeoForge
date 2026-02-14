@@ -1,12 +1,11 @@
-package net.rusticpotatoes.bountifulseals.block.blockentity;
+package net.rusticpotatoes.bountifulseals.block;
 
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.world.level.block.entity.BlockEntityType;
 import net.neoforged.bus.api.IEventBus;
 import net.neoforged.neoforge.registries.DeferredRegister;
 import net.rusticpotatoes.bountifulseals.BountifulSeals;
-import net.rusticpotatoes.bountifulseals.block.ModBlocks;
-import net.rusticpotatoes.bountifulseals.block.blockentity.custom.CrateBlockEntity;
+import net.rusticpotatoes.bountifulseals.block.custom.crate.CrateBlockEntity;
 
 import java.util.function.Supplier;
 

@@ -2,10 +2,13 @@ package net.rusticpotatoes.bountifulseals.datagen;
 
 import net.minecraft.core.HolderLookup;
 import net.minecraft.data.PackOutput;
+import net.minecraft.tags.BlockTags;
 import net.minecraft.world.level.block.Blocks;
+import net.neoforged.neoforge.common.Tags;
 import net.neoforged.neoforge.common.data.BlockTagsProvider;
 import net.neoforged.neoforge.common.data.ExistingFileHelper;
 import net.rusticpotatoes.bountifulseals.BountifulSeals;
+import net.rusticpotatoes.bountifulseals.block.ModBlocks;
 import net.rusticpotatoes.bountifulseals.tag.ModTags;
 
 import javax.annotation.Nullable;
@@ -25,6 +28,8 @@ public class ModBlockTagProvider extends BlockTagsProvider {
                 .add(Blocks.ICE)
                 .add(Blocks.FROSTED_ICE)
                 .add(Blocks.PACKED_ICE);
+        tag(BlockTags.MINEABLE_WITH_AXE)
+                .add(ModBlocks.CRATE.get());
 
     }
 }

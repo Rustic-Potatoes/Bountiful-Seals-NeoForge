@@ -1,4 +1,4 @@
-package net.rusticpotatoes.bountifulseals.block.blockentity.custom;
+package net.rusticpotatoes.bountifulseals.screen.menu;
 
 import net.minecraft.core.registries.Registries;
 import net.minecraft.world.inventory.AbstractContainerMenu;

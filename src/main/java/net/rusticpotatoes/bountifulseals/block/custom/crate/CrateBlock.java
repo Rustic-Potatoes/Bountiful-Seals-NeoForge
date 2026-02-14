@@ -1,4 +1,4 @@
-package net.rusticpotatoes.bountifulseals.block.custom;
+package net.rusticpotatoes.bountifulseals.block.custom.crate;
 
 import com.mojang.serialization.MapCodec;
 import net.minecraft.core.BlockPos;
@@ -16,30 +16,22 @@ import net.minecraft.world.level.block.*;
 import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.StateDefinition;
-import net.minecraft.world.level.block.state.properties.BlockStateProperties;
-import net.minecraft.world.level.block.state.properties.BooleanProperty;
 import net.minecraft.world.level.block.state.properties.DirectionProperty;
 import net.minecraft.world.phys.BlockHitResult;
-import net.rusticpotatoes.bountifulseals.block.blockentity.custom.CrateBlockEntity;
 
 public class CrateBlock extends BaseEntityBlock {
     public static final MapCodec<CrateBlock> CODEC = simpleCodec(CrateBlock::new);
     public static final DirectionProperty FACING = HorizontalDirectionalBlock.FACING;
-   // public static final BooleanProperty RENDER_ITEM = BooleanProperty.create("bountifulseals.render_item");
-   // public static final BooleanProperty WATERLOGGED = BlockStateProperties.WATERLOGGED;
-
-
-
 
     public CrateBlock(Properties properties) {
         super(properties);
         this.registerDefaultState(this.stateDefinition.any()
                 .setValue(FACING, Direction.NORTH)
-               // .setValue(RENDER_ITEM, Boolean.FALSE)
-               // .setValue(WATERLOGGED, Boolean.FALSE)
         );
 
     }
+
+
 
     @Override
     public BlockState getStateForPlacement(BlockPlaceContext context) {
@@ -70,7 +62,7 @@ public class CrateBlock extends BaseEntityBlock {
     protected void onRemove(BlockState state, Level level, BlockPos pos, BlockState newState, boolean movedByPiston) {
         if(state.getBlock() != newState.getBlock()) {
             if(level.getBlockEntity(pos) instanceof CrateBlockEntity crateBlockEntity) {
-                crateBlockEntity.drops();
+                crateBlockEntity.dropItems();
                 level.updateNeighbourForOutputSignal(pos, this);
             }
         }

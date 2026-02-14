@@ -11,7 +11,7 @@ import net.neoforged.bus.api.IEventBus;
 import net.neoforged.neoforge.registries.DeferredBlock;
 import net.neoforged.neoforge.registries.DeferredRegister;
 import net.rusticpotatoes.bountifulseals.BountifulSeals;
-import net.rusticpotatoes.bountifulseals.block.custom.CrateBlock;
+import net.rusticpotatoes.bountifulseals.block.custom.crate.CrateBlock;
 import net.rusticpotatoes.bountifulseals.block.custom.SnowClumpsBlock;
 import net.rusticpotatoes.bountifulseals.item.ModItems;
 
@@ -23,11 +23,18 @@ public class ModBlocks {
 
     public static final DeferredBlock<Block> SNOW_CLUMPS = registerBlock("snow_clumps",
             () -> new SnowClumpsBlock(BlockBehaviour.Properties.of()
-                    .mapColor(MapColor.SNOW).noCollission().sound(SoundType.SNOW).replaceable().pushReaction(PushReaction.DESTROY)));
+                    .mapColor(MapColor.SNOW).noCollission().sound(SoundType.SNOW)
+                    .replaceable()
+                    .pushReaction(PushReaction.DESTROY)
+            ));
 
     public static final DeferredBlock<Block> CRATE = registerBlock("crate",
             () -> new CrateBlock(BlockBehaviour.Properties.of()
-                    .mapColor(MapColor.WOOD).sound(SoundType.WOOD)));
+                    .mapColor(MapColor.WOOD)
+                    .sound(SoundType.WOOD)
+                    .strength(4.0F, 3.0F)
+                    .sound(SoundType.WOOD)
+            ));
 
 
     private static <T extends Block> DeferredBlock<T> registerBlock(String name, Supplier<T> block) {

@@ -15,8 +15,8 @@ import net.neoforged.neoforge.common.NeoForge;
 import net.neoforged.neoforge.event.BuildCreativeModeTabContentsEvent;
 import net.neoforged.neoforge.event.server.ServerStartingEvent;
 import net.rusticpotatoes.bountifulseals.block.ModBlocks;
-import net.rusticpotatoes.bountifulseals.block.blockentity.ModBlockEntities;
-import net.rusticpotatoes.bountifulseals.block.blockentity.custom.ModMenus;
+import net.rusticpotatoes.bountifulseals.block.ModBlockEntities;
+import net.rusticpotatoes.bountifulseals.screen.menu.ModMenus;
 import net.rusticpotatoes.bountifulseals.entity.ModEntities;
 import net.rusticpotatoes.bountifulseals.item.ModCreativeModeTabs;
 import net.rusticpotatoes.bountifulseals.item.ModItems;
@@ -26,7 +26,6 @@ import org.slf4j.Logger;
 @Mod(BountifulSeals.MOD_ID)
 public class BountifulSeals {
     public static final String MOD_ID = "bountifulseals";
-    public static final Logger LOGGER = LogUtils.getLogger();
 
     // The constructor for the mod class is the first code that is run when your mod is loaded.
     // FML will recognize some parameter types like IEventBus or ModContainer and pass them in automatically.

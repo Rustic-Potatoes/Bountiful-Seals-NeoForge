@@ -3,7 +3,7 @@ package net.rusticpotatoes.bountifulseals.screen.slot;
 import net.minecraft.world.item.ItemStack;
 import net.neoforged.neoforge.items.IItemHandler;
 import net.neoforged.neoforge.items.SlotItemHandler;
-import net.rusticpotatoes.bountifulseals.block.blockentity.custom.CrateBlockEntity;
+import net.rusticpotatoes.bountifulseals.block.custom.crate.CrateBlockEntity;
 
 public class FilterLockingSlot extends SlotItemHandler {
     private final CrateBlockEntity block_entity;
@@ -15,11 +15,6 @@ public class FilterLockingSlot extends SlotItemHandler {
 
     @Override
     public boolean mayPlace(ItemStack stack) {
-        return this.block_entity.inventory.getStackInSlot(67).getItem() == stack.getItem();
-
-
+        return block_entity.getFilter() == stack.getItem();
     }
-
-
-
 }

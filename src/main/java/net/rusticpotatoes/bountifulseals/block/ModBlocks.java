@@ -3,6 +3,7 @@ package net.rusticpotatoes.bountifulseals.block;
 import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.level.block.Block;
+import net.minecraft.world.level.block.PlayerHeadBlock;
 import net.minecraft.world.level.block.SoundType;
 import net.minecraft.world.level.block.state.BlockBehaviour;
 import net.minecraft.world.level.material.MapColor;
@@ -11,6 +12,7 @@ import net.neoforged.bus.api.IEventBus;
 import net.neoforged.neoforge.registries.DeferredBlock;
 import net.neoforged.neoforge.registries.DeferredRegister;
 import net.rusticpotatoes.bountifulseals.BountifulSeals;
+import net.rusticpotatoes.bountifulseals.block.custom.SnowGlobeBlock;
 import net.rusticpotatoes.bountifulseals.block.custom.crate.CrateBlock;
 import net.rusticpotatoes.bountifulseals.block.custom.SnowClumpsBlock;
 import net.rusticpotatoes.bountifulseals.item.ModItems;
@@ -33,7 +35,15 @@ public class ModBlocks {
                     .mapColor(MapColor.WOOD)
                     .sound(SoundType.WOOD)
                     .strength(4.0F, 3.0F)
-                    .sound(SoundType.WOOD)
+                    .forceSolidOn()
+            ));
+
+    public static final DeferredBlock<Block> SNOW_GLOBE = registerBlock("snow_globe",
+            () -> new SnowGlobeBlock(BlockBehaviour.Properties.of()
+                    .mapColor(MapColor.SNOW)
+                    .sound(SoundType.TUFF)
+                    .strength(0.25F, 1F)
+                    .pushReaction(PushReaction.DESTROY)
             ));
 
 

@@ -45,57 +45,12 @@ public class BountifulSeals {
         ModBlockEntities.register(modEventBus);
         ModMenus.register(modEventBus);
 
-
-
-
-
-
-
-
-
-        // Register the item to a creative tab
-        modEventBus.addListener(this::addCreative);
-
         // Register our mod's ModConfigSpec so that FML can create and load the config file for us
         modContainer.registerConfig(ModConfig.Type.COMMON, Config.SPEC);
     }
 
     private void commonSetup(FMLCommonSetupEvent event) {
 
-    }
-
-    private void addCreative(BuildCreativeModeTabContentsEvent event) {
-        if(event.getTabKey() == CreativeModeTabs.TOOLS_AND_UTILITIES) {
-            event.accept(ModItems.BEACH_BALL);
-            event.insertAfter(
-                    Items.COD_BUCKET.getDefaultInstance(),
-                    ModItems.ARCTIC_COD_BUCKET.get().getDefaultInstance(),
-                    CreativeModeTab.TabVisibility.PARENT_AND_SEARCH_TABS
-            );
-        }
-        if(event.getTabKey() == CreativeModeTabs.SPAWN_EGGS) {
-            event.accept(ModItems.HARP_SEAL_SPAWN_EGG);
-            event.accept(ModItems.ARCTIC_COD_SPAWN_EGG);
-        }
-        if(event.getTabKey() == CreativeModeTabs.NATURAL_BLOCKS) {
-            event.insertAfter(
-                    Blocks.SNOW_BLOCK.asItem().getDefaultInstance(),
-                    ModBlocks.SNOW_CLUMPS.toStack(),
-                    CreativeModeTab.TabVisibility.PARENT_AND_SEARCH_TABS
-            );
-        }
-        if(event.getTabKey() == CreativeModeTabs.FOOD_AND_DRINKS) {
-            event.insertAfter(
-                    Items.COOKED_COD.getDefaultInstance(),
-                    ModItems.ARCTIC_COD.get().getDefaultInstance(),
-                    CreativeModeTab.TabVisibility.PARENT_AND_SEARCH_TABS
-            );
-            event.insertAfter(
-                    ModItems.ARCTIC_COD.get().getDefaultInstance(),
-                    ModItems.COOKED_ARCTIC_COD.get().getDefaultInstance(),
-                    CreativeModeTab.TabVisibility.PARENT_AND_SEARCH_TABS
-                    );
-        }
     }
 
     @SubscribeEvent

@@ -1,6 +1,7 @@
 package net.rusticpotatoes.bountifulseals.block.custom.crate;
 
 import com.mojang.serialization.MapCodec;
+import net.minecraft.client.gui.screens.Screen;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.network.chat.Component;
@@ -9,7 +10,10 @@ import net.minecraft.world.ItemInteractionResult;
 import net.minecraft.world.SimpleMenuProvider;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.inventory.AbstractContainerMenu;
+import net.minecraft.world.inventory.tooltip.TooltipComponent;
+import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.item.TooltipFlag;
 import net.minecraft.world.item.context.BlockPlaceContext;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.*;
@@ -18,6 +22,8 @@ import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.StateDefinition;
 import net.minecraft.world.level.block.state.properties.DirectionProperty;
 import net.minecraft.world.phys.BlockHitResult;
+
+import java.util.List;
 
 public class CrateBlock extends BaseEntityBlock {
     public static final MapCodec<CrateBlock> CODEC = simpleCodec(CrateBlock::new);
@@ -31,7 +37,19 @@ public class CrateBlock extends BaseEntityBlock {
 
     }
 
-
+    @Override
+    public void appendHoverText(ItemStack stack, Item.TooltipContext context, List<Component> tooltipComponents, TooltipFlag tooltipFlag) {
+        if (Screen.hasShiftDown()) {
+            tooltipComponents.add(Component.translatable("tooltip.bountifulseals.crate.shift1"));
+            tooltipComponents.add(Component.translatable("tooltip.bountifulseals.crate.shift2"));
+            tooltipComponents.add(Component.translatable("tooltip.bountifulseals.crate.shift3"));
+            tooltipComponents.add(Component.translatable("tooltip.bountifulseals.crate.shift4"));
+            tooltipComponents.add(Component.translatable("tooltip.bountifulseals.crate.shift5"));
+        } else {
+            tooltipComponents.add(Component.translatable("tooltip.bountifulseals.crate"));
+        }
+        super.appendHoverText(stack, context, tooltipComponents, tooltipFlag);
+    }
 
     @Override
     public BlockState getStateForPlacement(BlockPlaceContext context) {

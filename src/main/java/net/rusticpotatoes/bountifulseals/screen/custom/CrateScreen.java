@@ -6,12 +6,15 @@ import net.minecraft.client.gui.screens.inventory.AbstractContainerScreen;
 import net.minecraft.network.chat.Component;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.entity.player.Inventory;
+import net.minecraft.world.item.Items;
 import net.rusticpotatoes.bountifulseals.BountifulSeals;
 import net.rusticpotatoes.bountifulseals.screen.menu.CrateMenu;
 
 public class CrateScreen extends AbstractContainerScreen<CrateMenu> {
     private static final ResourceLocation GUI_TEXTURE = ResourceLocation.fromNamespaceAndPath(BountifulSeals.MOD_ID, "textures/gui/crate/crate_gui.png");
     private static final ResourceLocation ITEM_FRAME_TEXTURE = ResourceLocation.fromNamespaceAndPath(BountifulSeals.MOD_ID, "textures/gui/crate/item_frame_icon.png");
+    private static final ResourceLocation FILTER_TEXTURE = ResourceLocation.fromNamespaceAndPath(BountifulSeals.MOD_ID, "textures/gui/crate/filter_icon.png");
+
 
     public CrateScreen(CrateMenu menu, Inventory playerInventory, Component title) {
         super(menu, playerInventory, title);
@@ -39,6 +42,13 @@ public class CrateScreen extends AbstractContainerScreen<CrateMenu> {
                 int y = this.topPos - 15;
 
             guiGraphics.blit(ITEM_FRAME_TEXTURE, x, y, 0, 0, 16, 16, 16, 16);
+        }
+
+        if (this.menu.blockEntity.getFilter() == Items.AIR) {
+            int x = this.leftPos + 170;
+            int y = this.topPos - 15;
+
+            guiGraphics.blit(FILTER_TEXTURE, x, y, 0, 0, 16, 16, 16, 16);
         }
     }
 

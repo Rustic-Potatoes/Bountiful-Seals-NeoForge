@@ -80,7 +80,7 @@ public class CrateBlockEntity extends BlockEntity implements MenuProvider {
     }
 
     public boolean isEmpty() {
-        for (int i = 1; i < (INVENTORY_SIZE); i++) {
+        for (int i = 0; i < (INVENTORY_SIZE); i++) {
             if (!inventory.getStackInSlot(i).isEmpty()) {
                 return false;
             }

@@ -28,6 +28,7 @@ public class ModCreativeModeTabs {
 
                         output.accept(ModBlocks.SNOW_CLUMPS);
                         output.accept(ModBlocks.CRATE);
+                        output.accept(ModBlocks.SNOW_GLOBE);
                     }).build());
 
     public static void register(IEventBus eventBus) {

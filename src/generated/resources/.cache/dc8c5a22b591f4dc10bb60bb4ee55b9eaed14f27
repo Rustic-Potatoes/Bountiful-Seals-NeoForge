@@ -1,7 +1,0 @@
-// 1.21.1	2026-02-06T10:38:03.7045289	Tags for minecraft:item mod id bountifulseals
-c8040fcf184d587df2bdb4db7778b2524d2b35fb data/bountifulseals/tags/item/harp_seal_foods.json
-171564f1f1621ee824a7dc2dace4403eeb300320 data/c/tags/item/animal_foods.json
-85a0df009cb02d5b6275b129e6d3a3d7fa74f9aa data/c/tags/item/buckets/entity_water.json
-50160065cc18c92fca03b540078d683ed6625220 data/c/tags/item/foods/cooked_fish.json
-0a2c3ffcec6dafede8db60e18303b3031845a634 data/c/tags/item/foods/raw_fish.json
-17cefaa046950dec93758f8e758b352ff4d000c3 data/minecraft/tags/item/fishes.json

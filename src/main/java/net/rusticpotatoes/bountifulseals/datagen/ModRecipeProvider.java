@@ -39,6 +39,14 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
                 .define('C', Tags.Items.CHESTS_WOODEN)
                 .unlockedBy("has_iron", has(Tags.Items.INGOTS_IRON)).save(recipeOutput);
 
+        ShapelessRecipeBuilder.shapeless(RecipeCategory.MISC, ModBlocks.SNOW_CLUMPS, 4)
+                .requires(Items.SNOWBALL, 2)
+                .unlockedBy("has_snowball", has(Items.SNOWBALL)).save(recipeOutput);
+
+        ShapelessRecipeBuilder.shapeless(RecipeCategory.MISC, Items.SNOWBALL, 2)
+                .requires(ModBlocks.SNOW_CLUMPS, 4)
+                .unlockedBy("has_snow_clumps", has(ModBlocks.SNOW_CLUMPS)).save(recipeOutput, "snowball_from_snow_clumps");
+
 
 
         smeltingRecipe(recipeOutput, List.of(ModItems.ARCTIC_COD), RecipeCategory.FOOD, ModItems.COOKED_ARCTIC_COD.get(),

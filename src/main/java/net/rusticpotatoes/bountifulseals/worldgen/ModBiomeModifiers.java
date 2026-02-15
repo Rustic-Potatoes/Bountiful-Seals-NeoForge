@@ -37,7 +37,9 @@ public class ModBiomeModifiers {
                                 biomes.getOrThrow(Biomes.FROZEN_RIVER),
                                 biomes.getOrThrow(Biomes.ICE_SPIKES),
                                 biomes.getOrThrow(Biomes.FROZEN_OCEAN),
-                                biomes.getOrThrow(Biomes.DEEP_FROZEN_OCEAN)
+                                biomes.getOrThrow(Biomes.DEEP_FROZEN_OCEAN),
+                                biomes.getOrThrow(Biomes.SNOWY_BEACH),
+                                biomes.getOrThrow(Biomes.SNOWY_PLAINS)
                         ),
                 HolderSet.direct(placedFeatures.getOrThrow(ModPlacedFeatures.SNOW_CLUMPS_PLACED_KEY)),
                 GenerationStep.Decoration.TOP_LAYER_MODIFICATION));

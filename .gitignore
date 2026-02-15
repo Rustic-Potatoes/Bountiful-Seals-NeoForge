@@ -26,3 +26,5 @@ run-data
 repo
 
 ignore/
+
+src/generated/resources/.cache

@@ -25,6 +25,7 @@ public class ModBlockTagProvider extends BlockTagsProvider {
                 .add(Blocks.GRASS_BLOCK)
                 .add(Blocks.SNOW)
                 .add(Blocks.SNOW_BLOCK)
+                .add(ModBlocks.SNOW_CLUMPS.get())
                 .add(Blocks.ICE)
                 .add(Blocks.FROSTED_ICE)
                 .add(Blocks.PACKED_ICE);

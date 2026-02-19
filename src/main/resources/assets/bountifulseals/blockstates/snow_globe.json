@@ -1,7 +1,36 @@
 {
   "variants": {
-    "": {
-      "model": "bountifulseals:block/snow_globe"
+    "rotation=0": {
+      "model": "bountifulseals:block/snow_globe",
+      "y": 0
+    },
+    "rotation=1": {
+      "model": "bountifulseals:block/snow_globe_rotated",
+      "y": 0
+    },
+    "rotation=2": {
+      "model": "bountifulseals:block/snow_globe",
+      "y": 90
+    },
+    "rotation=3": {
+      "model": "bountifulseals:block/snow_globe_rotated",
+      "y": 90
+    },
+    "rotation=4": {
+      "model": "bountifulseals:block/snow_globe",
+      "y": 180
+    },
+    "rotation=5": {
+      "model": "bountifulseals:block/snow_globe_rotated",
+      "y": 180
+    },
+    "rotation=6": {
+      "model": "bountifulseals:block/snow_globe",
+      "y": 270
+    },
+    "rotation=7": {
+      "model": "bountifulseals:block/snow_globe_rotated",
+      "Y": 270
     }
   }
 }

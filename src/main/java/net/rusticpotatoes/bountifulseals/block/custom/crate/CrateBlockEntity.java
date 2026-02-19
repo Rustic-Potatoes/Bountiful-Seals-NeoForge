@@ -25,6 +25,7 @@ import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.state.BlockState;
 import net.neoforged.neoforge.items.ItemStackHandler;
 import net.rusticpotatoes.bountifulseals.BountifulSeals;
+import net.rusticpotatoes.bountifulseals.Log;
 import net.rusticpotatoes.bountifulseals.block.ModBlockEntities;
 import net.rusticpotatoes.bountifulseals.screen.menu.CrateMenu;
 import org.jetbrains.annotations.Nullable;
@@ -57,6 +58,7 @@ public class CrateBlockEntity extends BlockEntity implements MenuProvider {
     public final ItemStackHandler inventory = new ItemStackHandler(INVENTORY_SIZE) {
         @Override
         protected void onContentsChanged(int slot) {
+            checkFilter();
             setChanged();
             if (!level.isClientSide()) {
                 level.sendBlockUpdated(getBlockPos(), getBlockState(), getBlockState(), 3);
@@ -80,7 +82,7 @@ public class CrateBlockEntity extends BlockEntity implements MenuProvider {
     }
 
     public boolean isEmpty() {
-        for (int i = 0; i < (INVENTORY_SIZE); i++) {
+        for (int i = 0; i < inventory.getSlots(); i++) {
             if (!inventory.getStackInSlot(i).isEmpty()) {
                 return false;
             }
@@ -113,8 +115,20 @@ public class CrateBlockEntity extends BlockEntity implements MenuProvider {
         return has_item_frame;
     }
 
+    public void checkFilter() {
+        if ((getFilter() == Items.AIR) && !isEmpty()) {
+            for (int i = 0; i < inventory.getSlots() - 1; i++) {
+                if (inventory.getStackInSlot(i) != ItemStack.EMPTY) {
+                    setFilter(inventory.getStackInSlot(i).getItem());
+                    break;
+                }
+            }
+        }
+    }
+
     @Override
     protected void saveAdditional(CompoundTag tag, HolderLookup.Provider registries) {
+        checkFilter();
         super.saveAdditional(tag, registries);
         tag.put("Inventory", inventory.serializeNBT(registries));
         if ((filter != null) && (filter != Items.AIR)) {

@@ -41,7 +41,7 @@ public class ModBlocks {
     public static final DeferredBlock<Block> SNOW_GLOBE = registerBlock("snow_globe",
             () -> new SnowGlobeBlock(BlockBehaviour.Properties.of()
                     .mapColor(MapColor.SNOW)
-                    .sound(SoundType.TUFF)
+                    .sound(SoundType.STONE)
                     .strength(0.25F, 1F)
                     .pushReaction(PushReaction.DESTROY)
             ));

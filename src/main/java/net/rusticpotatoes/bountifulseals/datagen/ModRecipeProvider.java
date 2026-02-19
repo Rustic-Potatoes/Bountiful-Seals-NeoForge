@@ -39,6 +39,17 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
                 .define('C', Tags.Items.CHESTS_WOODEN)
                 .unlockedBy("has_iron", has(Tags.Items.INGOTS_IRON)).save(recipeOutput);
 
+        ShapedRecipeBuilder.shaped(RecipeCategory.MISC, ModBlocks.SNOW_GLOBE)
+                .pattern("WGS")
+                .pattern("GCG")
+                .pattern("DDD")
+                .define('W', ItemTags.WOODEN_BUTTONS)
+                .define('G', Tags.Items.GLASS_BLOCKS_COLORLESS)
+                .define('S', ItemTags.STONE_BUTTONS)
+                .define('C', ModBlocks.SNOW_CLUMPS)
+                .define('D', Tags.Items.COBBLESTONES_DEEPSLATE)
+                .unlockedBy("has_glass", has(Tags.Items.GLASS_BLOCKS)).save(recipeOutput);
+
         ShapelessRecipeBuilder.shapeless(RecipeCategory.MISC, ModBlocks.SNOW_CLUMPS, 4)
                 .requires(Items.SNOWBALL, 2)
                 .unlockedBy("has_snowball", has(Items.SNOWBALL)).save(recipeOutput);

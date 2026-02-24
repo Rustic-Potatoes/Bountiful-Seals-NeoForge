@@ -1,25 +1,19 @@
-
-Installation information
+(Rustic's) Bountiful Seals
 =======
 
-This template repository can be directly cloned to get you started with a new
-mod. Simply create a new repository cloned from this one, by following the
-instructions provided by [GitHub](https://docs.github.com/en/repositories/creating-and-managing-repositories/creating-a-repository-from-a-template).
+<p align="center"><img width='750' src='src/main/resources/icon.png'>
+  
+ Makes the colder biomes feel livelier with more items, blocks and entities. This mod adds Arctic Cod, Harp Seals, Snow Globes, and more. It also adds the crate block, crafted with a chest, planks and iron, which can store a lot of one type of item or block, but it can't store anything else, making it an early game bulk storage option.
 
-Once you have your clone, simply open the repository in the IDE of your choice. The usual recommendation for an IDE is either IntelliJ IDEA or Eclipse.
+This mod is only out for Neoforge 1.21.1 currently.
+ 
 
-If at any point you are missing libraries in your IDE, or you've run into problems you can
-run `gradlew --refresh-dependencies` to refresh the local cache. `gradlew clean` to reset everything 
-{this does not affect your code} and then start the process again.
+#### If you encounter any bugs or have a suggestion, please report it on my [Github page](https://github.com/Rustic-Potatoes/Bountiful-Seals-NeoForge/).
 
-Mapping Names:
-============
-By default, the MDK is configured to use the official mapping names from Mojang for methods and fields 
-in the Minecraft codebase. These names are covered by a specific license. All modders should be aware of this
-license. For the latest license text, refer to the mapping file itself, or the reference copy here:
-https://github.com/NeoForged/NeoForm/blob/main/Mojang.md
+---
 
-Additional Resources: 
-==========
-Community Documentation: https://docs.neoforged.net/  
-NeoForged Discord: https://discord.neoforged.net/
+#### Links:
+
+- Curseforge: TBD
+
+---

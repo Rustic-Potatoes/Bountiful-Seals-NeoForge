@@ -1,0 +1,15 @@
+{
+  "type": "neoforge:add_spawns",
+  "biomes": [
+    "minecraft:snowy_beach",
+    "minecraft:ice_spikes",
+    "minecraft:frozen_ocean",
+    "minecraft:deep_frozen_ocean"
+  ],
+  "spawners": {
+    "type": "bountifulseals:arctic_cod",
+    "maxCount": 6,
+    "minCount": 3,
+    "weight": 100
+  }
+}

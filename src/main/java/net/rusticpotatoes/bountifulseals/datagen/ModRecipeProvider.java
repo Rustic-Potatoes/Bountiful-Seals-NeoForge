@@ -23,12 +23,12 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
 
     @Override
     protected void buildRecipes(RecipeOutput recipeOutput) {
-        ShapelessRecipeBuilder.shapeless(RecipeCategory.MISC, ModItems.BEACH_BALL)
-                .requires(Items.LEATHER)
-                .requires(Items.WHITE_WOOL)
-                .requires(Items.RED_WOOL)
-                .requires(Items.STRING)
-                .unlockedBy("has_wool", has(ItemTags.WOOL)).save(recipeOutput);
+       // ShapelessRecipeBuilder.shapeless(RecipeCategory.MISC, ModItems.BEACH_BALL)
+       //         .requires(Items.LEATHER)
+       //         .requires(Items.WHITE_WOOL)
+       //         .requires(Items.RED_WOOL)
+       //         .requires(Items.STRING)
+       //         .unlockedBy("has_wool", has(ItemTags.WOOL)).save(recipeOutput);
 
         ShapedRecipeBuilder.shaped(RecipeCategory.MISC, ModBlocks.CRATE)
                 .pattern("IWI")

@@ -13,7 +13,6 @@ public class ModItemModelProvider extends ItemModelProvider {
 
     @Override
     protected void registerModels() {
-        basicItem(ModItems.BEACH_BALL.get());
         basicItem(ModItems.ARCTIC_COD.get());
         basicItem(ModItems.COOKED_ARCTIC_COD.get());
         basicItem(ModItems.ARCTIC_COD_BUCKET.get());

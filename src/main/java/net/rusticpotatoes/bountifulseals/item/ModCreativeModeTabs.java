@@ -16,10 +16,9 @@ public class ModCreativeModeTabs {
             DeferredRegister.create(Registries.CREATIVE_MODE_TAB, BountifulSeals.MOD_ID);
 
     public static final Supplier<CreativeModeTab> SEAL_TAB = CREATIVE_MODE_TAB.register("seal_tab",
-            () -> CreativeModeTab.builder().icon(() -> new ItemStack(ModItems.BEACH_BALL.get()))
+            () -> CreativeModeTab.builder().icon(() -> new ItemStack(ModBlocks.SNOW_GLOBE))
                     .title(Component.translatable("creativetab.bountifulseals.seal_tab"))
                     .displayItems((parameters, output) -> {
-                        output.accept(ModItems.BEACH_BALL);
                         output.accept(ModItems.HARP_SEAL_SPAWN_EGG);
                         output.accept(ModItems.ARCTIC_COD_SPAWN_EGG);
                         output.accept(ModItems.ARCTIC_COD);

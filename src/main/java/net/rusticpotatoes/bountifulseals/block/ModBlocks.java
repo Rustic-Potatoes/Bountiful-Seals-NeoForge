@@ -1,7 +1,10 @@
 package net.rusticpotatoes.bountifulseals.block;
 
+import net.minecraft.network.chat.Component;
 import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.item.Item;
+import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.item.TooltipFlag;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.PlayerHeadBlock;
 import net.minecraft.world.level.block.SoundType;
@@ -10,6 +13,7 @@ import net.minecraft.world.level.material.MapColor;
 import net.minecraft.world.level.material.PushReaction;
 import net.neoforged.bus.api.IEventBus;
 import net.neoforged.neoforge.registries.DeferredBlock;
+import net.neoforged.neoforge.registries.DeferredItem;
 import net.neoforged.neoforge.registries.DeferredRegister;
 import net.rusticpotatoes.bountifulseals.BountifulSeals;
 import net.rusticpotatoes.bountifulseals.block.custom.SnowGlobeBlock;
@@ -17,10 +21,14 @@ import net.rusticpotatoes.bountifulseals.block.custom.crate.CrateBlock;
 import net.rusticpotatoes.bountifulseals.block.custom.SnowClumpsBlock;
 import net.rusticpotatoes.bountifulseals.item.ModItems;
 
+import java.util.List;
 import java.util.function.Supplier;
 
 public class ModBlocks {
     public static final DeferredRegister.Blocks BLOCKS = DeferredRegister.createBlocks(BountifulSeals.MOD_ID);
+
+    private static final Component SNOW_GLOBE_TOOLTIP = Component.translatable("tooltip.bountifulseals.snow_globe");
+
 
 
     public static final DeferredBlock<Block> SNOW_CLUMPS = registerBlock("snow_clumps",
@@ -38,7 +46,7 @@ public class ModBlocks {
                     .forceSolidOn()
             ));
 
-    public static final DeferredBlock<Block> SNOW_GLOBE = registerBlock("snow_globe",
+    public static final DeferredBlock<Block> SNOW_GLOBE = registerBlockWithoutItem("snow_globe",
             () -> new SnowGlobeBlock(BlockBehaviour.Properties.of()
                     .mapColor(MapColor.SNOW)
                     .sound(SoundType.STONE)
@@ -47,10 +55,15 @@ public class ModBlocks {
             ));
 
 
+
     private static <T extends Block> DeferredBlock<T> registerBlock(String name, Supplier<T> block) {
         DeferredBlock<T> toReturn =BLOCKS.register(name, block);
         registerBlockItem(name, toReturn);
         return toReturn;
+    }
+
+    private static <T extends Block> DeferredBlock<T> registerBlockWithoutItem(String name, Supplier<T> block) {
+        return BLOCKS.register(name, block);
     }
 
 

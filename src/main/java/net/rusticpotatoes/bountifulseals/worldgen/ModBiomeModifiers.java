@@ -24,6 +24,7 @@ public class ModBiomeModifiers {
     }
 
     public static ResourceKey<BiomeModifier> SPAWN_HARP_SEAL = registerResourceKey("spawn_harp_seal");
+    public static ResourceKey<BiomeModifier> SPAWN_ARCTIC_COD = registerResourceKey("spawn_arctic_cod");
     public static ResourceKey<BiomeModifier> ADD_SNOW_CLUMPS = registerResourceKey("add_snow_clumps");
 
 
@@ -52,6 +53,15 @@ public class ModBiomeModifiers {
                         biomes.getOrThrow(Biomes.DEEP_FROZEN_OCEAN)
                 ),
                 List.of(new MobSpawnSettings.SpawnerData(ModEntities.HARP_SEAL.get(), 50, 3, 5))));
+
+        context.register(SPAWN_ARCTIC_COD, new BiomeModifiers.AddSpawnsBiomeModifier(
+                HolderSet.direct(
+                        biomes.getOrThrow(Biomes.SNOWY_BEACH),
+                        biomes.getOrThrow(Biomes.ICE_SPIKES),
+                        biomes.getOrThrow(Biomes.FROZEN_OCEAN),
+                        biomes.getOrThrow(Biomes.DEEP_FROZEN_OCEAN)
+                ),
+                List.of(new MobSpawnSettings.SpawnerData(ModEntities.ARCTIC_COD.get(), 30, 3, 6))));
     }
 }
 

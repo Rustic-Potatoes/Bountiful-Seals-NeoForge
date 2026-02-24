@@ -18,6 +18,9 @@
   "container.bountifulseals.crate.item_frame_tooltip": "Accepts an Item Frame; Whether to render an item",
   "container.bountifulseals.crate.filter_tooltip": "Filter Slot: Accepts any Item except Shulker Boxes",
 
+  "tooltip.bountifulseals.snow_globe1": "A wonderful Snow Globe that does",
+  "tooltip.bountifulseals.snow_globe2": "absolutely nothing but look pretty",
+
   "tooltip.bountifulseals.crate": "Press §9[Shift]§r for more Info",
   "tooltip.bountifulseals.crate.shift1": "This Container can store a lot of one type of item.",
   "tooltip.bountifulseals.crate.shift2": "Simply add the item to the Filter Slot,",

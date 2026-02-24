@@ -24,11 +24,14 @@ public class ModItemTagProvider extends ItemTagsProvider {
     @Override
     protected void addTags(HolderLookup.Provider provider) {
         tag(ModTags.Items.HARP_SEAL_FOODS)
-                .add(Items.COD).add(ARCTIC_COD.get());
-        tag(ItemTags.FISHES)
-                .add(ARCTIC_COD.get()).add(COOKED_ARCTIC_COD.get());
+                .add(Items.COD)
+                .add(ARCTIC_COD.get());
         tag(Tags.Items.ANIMAL_FOODS)
-                .addTags(ModTags.Items.HARP_SEAL_FOODS);
+                .add(Items.COD)
+                .add(ARCTIC_COD.get());
+        tag(ItemTags.FISHES)
+                .add(ARCTIC_COD.get())
+                .add(COOKED_ARCTIC_COD.get());
         tag(Tags.Items.BUCKETS_ENTITY_WATER)
                 .add(ARCTIC_COD_BUCKET.get());
         tag(Tags.Items.FOODS_RAW_FISH)

@@ -23,10 +23,8 @@ public class ArcticCodEntity extends Cod {
         return new ItemStack(ModItems.ARCTIC_COD_BUCKET.get());
     }
 
-    public static boolean checkArcticCodSpawnRules(
-            EntityType<? extends ArcticCodEntity> arcticCod, LevelAccessor level, MobSpawnType spawnType, BlockPos pos, RandomSource random
-    ) {
-        int i = level.getSeaLevel();
+    public static boolean checkArcticCodSpawnRules(EntityType<? extends ArcticCodEntity> arcticCod, LevelAccessor level, MobSpawnType spawnType, BlockPos pos, RandomSource random) {
+        int i = level.dimensionType().logicalHeight();
         int j = i - 3;
         return pos.getY() >= j
                 && pos.getY() <= i

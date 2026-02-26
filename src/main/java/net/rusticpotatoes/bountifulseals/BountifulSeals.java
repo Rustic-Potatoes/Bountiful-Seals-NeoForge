@@ -1,30 +1,21 @@
 package net.rusticpotatoes.bountifulseals;
 
-import com.mojang.logging.LogUtils;
-import net.minecraft.world.entity.npc.VillagerTrades;
-import net.minecraft.world.item.CreativeModeTab;
-import net.minecraft.world.item.CreativeModeTabs;
 import net.minecraft.world.item.ItemStack;
-import net.minecraft.world.item.Items;
-import net.minecraft.world.level.block.Blocks;
 import net.neoforged.bus.api.IEventBus;
 import net.neoforged.bus.api.SubscribeEvent;
 import net.neoforged.fml.ModContainer;
 import net.neoforged.fml.common.Mod;
-import net.neoforged.fml.config.ModConfig;
 import net.neoforged.fml.event.lifecycle.FMLCommonSetupEvent;
 import net.neoforged.neoforge.common.BasicItemListing;
 import net.neoforged.neoforge.common.NeoForge;
-import net.neoforged.neoforge.event.BuildCreativeModeTabContentsEvent;
 import net.neoforged.neoforge.event.server.ServerStartingEvent;
 import net.neoforged.neoforge.event.village.WandererTradesEvent;
-import net.rusticpotatoes.bountifulseals.block.ModBlocks;
 import net.rusticpotatoes.bountifulseals.block.ModBlockEntities;
-import net.rusticpotatoes.bountifulseals.screen.menu.ModMenus;
+import net.rusticpotatoes.bountifulseals.block.ModBlocks;
 import net.rusticpotatoes.bountifulseals.entity.ModEntities;
 import net.rusticpotatoes.bountifulseals.item.ModCreativeModeTabs;
 import net.rusticpotatoes.bountifulseals.item.ModItems;
-import org.slf4j.Logger;
+import net.rusticpotatoes.bountifulseals.screen.menu.ModMenus;
 
 // The value here should match an entry in the META-INF/neoforge.mods.toml file
 @Mod(BountifulSeals.MOD_ID)
@@ -53,6 +44,7 @@ public class BountifulSeals {
     private void commonSetup(FMLCommonSetupEvent event) {
 
     }
+
     @SubscribeEvent
     public void wanderTrader(WandererTradesEvent event) {
         event.getGenericTrades().add(new BasicItemListing(

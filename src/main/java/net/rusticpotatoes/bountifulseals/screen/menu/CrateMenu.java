@@ -10,7 +10,6 @@ import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.entity.BlockEntity;
-import net.rusticpotatoes.bountifulseals.BountifulSeals;
 import net.rusticpotatoes.bountifulseals.Log;
 import net.rusticpotatoes.bountifulseals.block.ModBlocks;
 import net.rusticpotatoes.bountifulseals.block.custom.crate.CrateBlockEntity;
@@ -38,7 +37,7 @@ public class CrateMenu extends AbstractContainerMenu {
 
         for (int j = 0; j < 6; j++) {
             for (int k = 0; k < 11; k++) {
-                this.addSlot(new FilterLockingSlot(this.blockEntity, this.blockEntity.inventory, (k + j * 11), -10 + k * 18,  7 + j * 18));
+                this.addSlot(new FilterLockingSlot(this.blockEntity, this.blockEntity.inventory, (k + j * 11), -10 + k * 18, 7 + j * 18));
             }
         }
         this.addSlot(new FilterSlot(this.blockEntity, 0, 170, -15));
@@ -58,7 +57,6 @@ public class CrateMenu extends AbstractContainerMenu {
         ItemStack copySourceStack = sourceStack.copy();
 
 
-
         if (!slot.hasItem() || slot instanceof FilterSlot || slot instanceof ItemFrameSlot) return ItemStack.EMPTY;
 
         if (index < 36) {// inside of inventory
@@ -69,19 +67,13 @@ public class CrateMenu extends AbstractContainerMenu {
                     + CrateBlockEntity.INVENTORY_SIZE, false)) {
                 return ItemStack.EMPTY;
             }
-        }
-
-        else if (index < 36 + CrateBlockEntity.INVENTORY_SIZE) { // inside of crate block
+        } else if (index < 36 + CrateBlockEntity.INVENTORY_SIZE) { // inside of crate block
             if (!moveItemStackTo(sourceStack, 0, 36, false)) {
                 return ItemStack.EMPTY;
             }
-        }
-
-        else if(index == 103) {
+        } else if (index == 103) {
             return ItemStack.EMPTY;
-        }
-
-        else {
+        } else {
             Log.error("Invalid slot Index for Crate Menu:" + index);
             return ItemStack.EMPTY;
         }

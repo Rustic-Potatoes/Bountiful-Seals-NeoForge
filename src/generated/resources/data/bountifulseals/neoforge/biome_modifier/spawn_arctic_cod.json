@@ -10,6 +10,6 @@
     "type": "bountifulseals:arctic_cod",
     "maxCount": 6,
     "minCount": 3,
-    "weight": 100
+    "weight": 15
   }
 }

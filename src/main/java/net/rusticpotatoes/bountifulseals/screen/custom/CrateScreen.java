@@ -38,8 +38,8 @@ public class CrateScreen extends AbstractContainerScreen<CrateMenu> {
 
 
         if (!this.menu.blockEntity.hasItemFrame()) {
-                int x = this.leftPos + 134;
-                int y = this.topPos - 15;
+            int x = this.leftPos + 134;
+            int y = this.topPos - 15;
 
             guiGraphics.blit(ITEM_FRAME_TEXTURE, x, y, 0, 0, 16, 16, 16, 16);
         }
@@ -69,11 +69,12 @@ public class CrateScreen extends AbstractContainerScreen<CrateMenu> {
                 118,
                 0x404040,
                 false
-        );;
+        );
+        ;
     }
 
     private void renderSlotTooltip(GuiGraphics guiGraphics, int x, int y, int mouseX, int mouseY, String tranlatableText) {
-        if ((mouseX >= this.leftPos + x && mouseX <= this.leftPos + x + 16) && (mouseY >= this.topPos + y && mouseY <= this.topPos + y + 16) &&  !(this.getSlotUnderMouse() != null && this.getSlotUnderMouse().hasItem())) {
+        if ((mouseX >= this.leftPos + x && mouseX <= this.leftPos + x + 16) && (mouseY >= this.topPos + y && mouseY <= this.topPos + y + 16) && !(this.getSlotUnderMouse() != null && this.getSlotUnderMouse().hasItem())) {
             guiGraphics.renderTooltip(
                     this.font,
                     Component.translatable(tranlatableText),

@@ -36,7 +36,7 @@ public class ModItems {
             () -> new DeferredSpawnEggItem(ModEntities.HARP_SEAL, 0xcecec6, 0x676664, new Item.Properties()));
 
     public static final DeferredItem<Item> ARCTIC_COD_SPAWN_EGG = ITEMS.register("arctic_cod_spawn_egg",
-            () -> new DeferredSpawnEggItem(ModEntities.ARCTIC_COD,0xc5b8a6 , 0x7c8e92, new Item.Properties()));
+            () -> new DeferredSpawnEggItem(ModEntities.ARCTIC_COD, 0xc5b8a6, 0x7c8e92, new Item.Properties()));
 
     public static final DeferredItem<Item> SNOW_GLOBE = ITEMS.register("snow_globe",
             () -> new BlockItem(ModBlocks.SNOW_GLOBE.get(), new Item.Properties().stacksTo(16)) {

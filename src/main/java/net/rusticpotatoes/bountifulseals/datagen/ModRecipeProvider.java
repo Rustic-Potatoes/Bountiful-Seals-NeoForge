@@ -23,12 +23,12 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
 
     @Override
     protected void buildRecipes(RecipeOutput recipeOutput) {
-       // ShapelessRecipeBuilder.shapeless(RecipeCategory.MISC, ModItems.BEACH_BALL)
-       //         .requires(Items.LEATHER)
-       //         .requires(Items.WHITE_WOOL)
-       //         .requires(Items.RED_WOOL)
-       //         .requires(Items.STRING)
-       //         .unlockedBy("has_wool", has(ItemTags.WOOL)).save(recipeOutput);
+        // ShapelessRecipeBuilder.shapeless(RecipeCategory.MISC, ModItems.BEACH_BALL)
+        //         .requires(Items.LEATHER)
+        //         .requires(Items.WHITE_WOOL)
+        //         .requires(Items.RED_WOOL)
+        //         .requires(Items.STRING)
+        //         .unlockedBy("has_wool", has(ItemTags.WOOL)).save(recipeOutput);
 
         ShapedRecipeBuilder.shaped(RecipeCategory.MISC, ModBlocks.CRATE)
                 .pattern("IWI")
@@ -59,33 +59,33 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
                 .unlockedBy("has_snow_clumps", has(ModBlocks.SNOW_CLUMPS)).save(recipeOutput, "snowball_from_snow_clumps");
 
 
-
         smeltingRecipe(recipeOutput, List.of(ModItems.ARCTIC_COD), RecipeCategory.FOOD, ModItems.COOKED_ARCTIC_COD.get(),
-                0.25f, 200, "arctic_cod" );
+                0.25f, 200, "arctic_cod");
 
         smokingRecipe(recipeOutput, List.of(ModItems.ARCTIC_COD), RecipeCategory.FOOD, ModItems.COOKED_ARCTIC_COD.get(),
-                0.25f, 100, "arctic_cod" );
+                0.25f, 100, "arctic_cod");
 
 
     }
 
 
     protected static void smeltingRecipe(RecipeOutput recipeOutput, List<ItemLike> pIngredients, RecipeCategory pCategory, ItemLike pResult,
-                                        float pExperience, int pCookingTIme, String pGroup) {
+                                         float pExperience, int pCookingTIme, String pGroup) {
         cookingRecipe(recipeOutput, RecipeSerializer.SMELTING_RECIPE, SmeltingRecipe::new, pIngredients, pCategory, pResult,
                 pExperience, pCookingTIme, pGroup, "_from_smelting");
     }
 
     protected static void smokingRecipe(RecipeOutput recipeOutput, List<ItemLike> pIngredients, RecipeCategory pCategory, ItemLike pResult,
-                                      float pExperience, int pCookingTIme, String pGroup) {
+                                        float pExperience, int pCookingTIme, String pGroup) {
         cookingRecipe(recipeOutput, RecipeSerializer.SMOKING_RECIPE, SmokingRecipe::new, pIngredients, pCategory, pResult,
                 pExperience, pCookingTIme, pGroup, "_from_smoking");
     }
 
     protected static <T extends AbstractCookingRecipe> void cookingRecipe(RecipeOutput recipeOutput, RecipeSerializer<T> pCookingSerializer, AbstractCookingRecipe.Factory<T> factory, List<ItemLike> pIngredients, RecipeCategory pCategory, ItemLike pResult, float pExperience, int pCookingTime, String pGroup, String pRecipeName) {
-        for(ItemLike itemlike : pIngredients) {
+        for (ItemLike itemlike : pIngredients) {
             SimpleCookingRecipeBuilder.generic(Ingredient.of(itemlike), pCategory, pResult, pExperience, pCookingTime, pCookingSerializer, factory).group(pGroup).unlockedBy(getHasName(itemlike), has(itemlike))
-                    .save(recipeOutput, BountifulSeals.MOD_ID + ":" + getItemName(pResult) + pRecipeName + "_" + getItemName(itemlike));}
+                    .save(recipeOutput, BountifulSeals.MOD_ID + ":" + getItemName(pResult) + pRecipeName + "_" + getItemName(itemlike));
+        }
     }
 }
 

@@ -13,11 +13,11 @@ import net.neoforged.neoforge.client.gui.ConfigurationScreen;
 import net.neoforged.neoforge.client.gui.IConfigScreenFactory;
 import net.rusticpotatoes.bountifulseals.block.ModBlockEntities;
 import net.rusticpotatoes.bountifulseals.block.custom.crate.client.CrateBlockRenderer;
-import net.rusticpotatoes.bountifulseals.screen.menu.ModMenus;
 import net.rusticpotatoes.bountifulseals.entity.ModEntities;
 import net.rusticpotatoes.bountifulseals.entity.client.arctic_cod.ArcticCodRenderer;
 import net.rusticpotatoes.bountifulseals.entity.client.harp_seal.HarpSealRenderer;
 import net.rusticpotatoes.bountifulseals.screen.custom.CrateScreen;
+import net.rusticpotatoes.bountifulseals.screen.menu.ModMenus;
 
 // This class will not load on dedicated servers. Accessing client side code from here is safe.
 @Mod(value = BountifulSeals.MOD_ID, dist = Dist.CLIENT)

@@ -12,12 +12,15 @@ public class ModTags {
     public class Items {
         public static final TagKey<Item> HARP_SEAL_FOODS = createItemTag("harp_seal_foods");
     }
+
     public class Blocks {
         public static final TagKey<Block> HARP_SEAL_SPAWNABLE_ON = createBlockTag("harp_seal_spawnable_on");
     }
+
     private static TagKey<Item> createItemTag(String id) {
         return ItemTags.create(ResourceLocation.fromNamespaceAndPath(BountifulSeals.MOD_ID, id));
     }
+
     private static TagKey<Block> createBlockTag(String id) {
         return BlockTags.create(ResourceLocation.fromNamespaceAndPath(BountifulSeals.MOD_ID, id));
     }

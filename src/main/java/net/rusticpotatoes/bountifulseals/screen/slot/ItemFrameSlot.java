@@ -15,9 +15,10 @@ public class ItemFrameSlot extends Slot {
         super(new SimpleContainer(1), index, xPosition, yPosition);
         this.block_entity = blockEntity;
     }
+
     @Override
     public boolean mayPlace(ItemStack stack) {
-      //  BountifulSeals.LOGGER.debug("mayplace");
+        //  BountifulSeals.LOGGER.debug("mayplace");
         return (stack.getItem() == Items.ITEM_FRAME)
                 && !block_entity.hasItemFrame();
     }
@@ -29,7 +30,7 @@ public class ItemFrameSlot extends Slot {
 
     @Override
     public void set(ItemStack stack) {
-      //  BountifulSeals.LOGGER.debug("set");
+        //  BountifulSeals.LOGGER.debug("set");
         if (!stack.isEmpty() && (stack.getItem() == Items.ITEM_FRAME)) {
             block_entity.setItemFrame(true);
             stack.shrink(1); // consume frame

@@ -6,7 +6,6 @@ import net.minecraft.util.RandomSource;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.MobSpawnType;
 import net.minecraft.world.entity.animal.Cod;
-import net.minecraft.world.entity.animal.WaterAnimal;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.LevelAccessor;
@@ -24,7 +23,7 @@ public class ArcticCodEntity extends Cod {
     }
 
     public static boolean checkArcticCodSpawnRules(EntityType<? extends ArcticCodEntity> arcticCod, LevelAccessor level, MobSpawnType spawnType, BlockPos pos, RandomSource random) {
-        int i = level.dimensionType().logicalHeight();
+        int i = level.getSeaLevel();
         int j = i - 3;
         return pos.getY() >= j
                 && pos.getY() <= i

@@ -2,7 +2,6 @@ package net.rusticpotatoes.bountifulseals.event;
 
 import net.minecraft.client.model.CodModel;
 import net.minecraft.world.entity.SpawnPlacementTypes;
-import net.minecraft.world.entity.animal.WaterAnimal;
 import net.minecraft.world.level.levelgen.Heightmap;
 import net.neoforged.bus.api.SubscribeEvent;
 import net.neoforged.fml.common.EventBusSubscriber;
@@ -41,7 +40,7 @@ public class ModEventBusEvents {
                 Heightmap.Types.MOTION_BLOCKING_NO_LEAVES,
                 HarpSealEntity::checkHarpSealSpawnRules,
                 RegisterSpawnPlacementsEvent.Operation.REPLACE
-                );
+        );
         event.register(
                 ModEntities.ARCTIC_COD.get(),
                 SpawnPlacementTypes.IN_WATER,

@@ -37,12 +37,12 @@ public class HarpSealEntity extends Animal {
     }
 
     private void setupAnimationsStates() {
-            if(this.idleAnimationTimeout <= 0) {
-                this.idleAnimationTimeout = 80;
-                idleAnimationState.start(this.tickCount);
-            } else {
-                --this.idleAnimationTimeout;
-            }
+        if (this.idleAnimationTimeout <= 0) {
+            this.idleAnimationTimeout = 80;
+            idleAnimationState.start(this.tickCount);
+        } else {
+            --this.idleAnimationTimeout;
+        }
     }
 
     public static boolean checkHarpSealSpawnRules(EntityType<HarpSealEntity> harpSeal, LevelAccessor level, MobSpawnType spawnType, BlockPos pos, RandomSource random) {

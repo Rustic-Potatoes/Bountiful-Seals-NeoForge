@@ -97,7 +97,7 @@ public class HarpSealModel<T extends HarpSealEntity> extends HierarchicalModel<T
         this.root().getAllParts().forEach(ModelPart::resetPose);
         this.applyHeadRotation(netHeadYaw, headPitch);
 
-        this.animateWalk(HarpSealAnimations.WALK_ANIM, limbSwing, limbSwingAmount, 4f, 2.5f);
+        this.animateWalk(HarpSealAnimations.WALK_ANIM, limbSwing * 1.5f, limbSwingAmount * 2f, 4f, 2.5f);
         this.animate(entity.idleAnimationState, HarpSealAnimations.IDLE_ANIM, ageInTicks, 1f);
     }
 
@@ -105,8 +105,8 @@ public class HarpSealModel<T extends HarpSealEntity> extends HierarchicalModel<T
         headYaw = Mth.clamp(headYaw, -30f, 30f);
         headPitch = Mth.clamp(headPitch, -25f, 45);
 
-        this.head.yRot = headYaw * ((float)Math.PI / 180f);
-        this.head.xRot = headPitch *  ((float)Math.PI / 180f);
+        this.head.yRot = headYaw * ((float) Math.PI / 180f);
+        this.head.xRot = headPitch * ((float) Math.PI / 180f);
     }
 
     @Override

@@ -12,7 +12,7 @@ import net.rusticpotatoes.bountifulseals.BountifulSeals;
 
 public class ModMenus {
     public static final DeferredRegister<MenuType<?>> MENUS =
-        DeferredRegister.create(Registries.MENU, BountifulSeals.MOD_ID);
+            DeferredRegister.create(Registries.MENU, BountifulSeals.MOD_ID);
 
     public static final DeferredHolder<MenuType<?>, MenuType<CrateMenu>> CRATE_MENU =
             registerMenuType("crate_menu", CrateMenu::new);

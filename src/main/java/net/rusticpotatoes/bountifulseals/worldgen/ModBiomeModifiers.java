@@ -5,7 +5,6 @@ import net.minecraft.core.registries.Registries;
 import net.minecraft.data.worldgen.BootstrapContext;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.resources.ResourceLocation;
-import net.minecraft.tags.BiomeTags;
 import net.minecraft.world.level.biome.Biomes;
 import net.minecraft.world.level.biome.MobSpawnSettings;
 import net.minecraft.world.level.levelgen.GenerationStep;
@@ -34,14 +33,14 @@ public class ModBiomeModifiers {
         var biomes = context.lookup(Registries.BIOME);
 
         context.register(ADD_SNOW_CLUMPS, new BiomeModifiers.AddFeaturesBiomeModifier(
-                        HolderSet.direct(
-                                biomes.getOrThrow(Biomes.FROZEN_RIVER),
-                                biomes.getOrThrow(Biomes.ICE_SPIKES),
-                                biomes.getOrThrow(Biomes.FROZEN_OCEAN),
-                                biomes.getOrThrow(Biomes.DEEP_FROZEN_OCEAN),
-                                biomes.getOrThrow(Biomes.SNOWY_BEACH),
-                                biomes.getOrThrow(Biomes.SNOWY_PLAINS)
-                        ),
+                HolderSet.direct(
+                        biomes.getOrThrow(Biomes.FROZEN_RIVER),
+                        biomes.getOrThrow(Biomes.ICE_SPIKES),
+                        biomes.getOrThrow(Biomes.FROZEN_OCEAN),
+                        biomes.getOrThrow(Biomes.DEEP_FROZEN_OCEAN),
+                        biomes.getOrThrow(Biomes.SNOWY_BEACH),
+                        biomes.getOrThrow(Biomes.SNOWY_PLAINS)
+                ),
                 HolderSet.direct(placedFeatures.getOrThrow(ModPlacedFeatures.SNOW_CLUMPS_PLACED_KEY)),
                 GenerationStep.Decoration.TOP_LAYER_MODIFICATION));
 
@@ -61,7 +60,7 @@ public class ModBiomeModifiers {
                         biomes.getOrThrow(Biomes.FROZEN_OCEAN),
                         biomes.getOrThrow(Biomes.DEEP_FROZEN_OCEAN)
                 ),
-                List.of(new MobSpawnSettings.SpawnerData(ModEntities.ARCTIC_COD.get(), 30, 3, 6))));
+                List.of(new MobSpawnSettings.SpawnerData(ModEntities.ARCTIC_COD.get(), 15, 3, 6))));
     }
 }
 

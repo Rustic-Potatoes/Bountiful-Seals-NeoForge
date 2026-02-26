@@ -19,7 +19,7 @@ public class ModEntities {
                     .sized(1.1f, 0.6f).build("harp_seal"));
 
     public static final Supplier<EntityType<ArcticCodEntity>> ARCTIC_COD =
-            ENTITY_TYPES.register("arctic_cod", () -> EntityType.Builder.of(ArcticCodEntity::new, MobCategory.WATER_CREATURE)
+            ENTITY_TYPES.register("arctic_cod", () -> EntityType.Builder.of(ArcticCodEntity::new, MobCategory.WATER_AMBIENT)
                     .sized(0.5F, 0.3F).eyeHeight(0.195F).clientTrackingRange(4).build("arctic_cod"));
 
     public static void register(IEventBus iEventBus) {

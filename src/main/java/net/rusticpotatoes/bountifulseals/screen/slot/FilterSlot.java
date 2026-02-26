@@ -1,14 +1,12 @@
 package net.rusticpotatoes.bountifulseals.screen.slot;
 
 import net.minecraft.tags.BlockTags;
-import net.minecraft.tags.ItemTags;
 import net.minecraft.world.SimpleContainer;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.inventory.Slot;
 import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Items;
-import net.neoforged.neoforge.common.Tags;
 import net.rusticpotatoes.bountifulseals.block.custom.crate.CrateBlockEntity;
 
 public class FilterSlot extends Slot {
@@ -43,7 +41,7 @@ public class FilterSlot extends Slot {
         if (this.block_entity.isEmpty() && (this.block_entity.getFilter() != Items.AIR)) {
             block_entity.setFilter(Items.AIR);
         }
-         return false;
+        return false;
     }
 
     @Override

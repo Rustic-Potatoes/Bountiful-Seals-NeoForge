@@ -10,7 +10,6 @@ import net.minecraft.world.ItemInteractionResult;
 import net.minecraft.world.SimpleMenuProvider;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.inventory.AbstractContainerMenu;
-import net.minecraft.world.inventory.tooltip.TooltipComponent;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.TooltipFlag;
@@ -78,8 +77,8 @@ public class CrateBlock extends BaseEntityBlock {
 
     @Override
     protected void onRemove(BlockState state, Level level, BlockPos pos, BlockState newState, boolean movedByPiston) {
-        if(state.getBlock() != newState.getBlock()) {
-            if(level.getBlockEntity(pos) instanceof CrateBlockEntity crateBlockEntity) {
+        if (state.getBlock() != newState.getBlock()) {
+            if (level.getBlockEntity(pos) instanceof CrateBlockEntity crateBlockEntity) {
                 crateBlockEntity.dropItems();
                 level.updateNeighbourForOutputSignal(pos, this);
             }
@@ -89,7 +88,7 @@ public class CrateBlock extends BaseEntityBlock {
 
     @Override
     protected ItemInteractionResult useItemOn(ItemStack stack, BlockState state, Level level, BlockPos pos, Player player, InteractionHand hand, BlockHitResult hitResult) {
-        if(level.getBlockEntity(pos) instanceof CrateBlockEntity crateBlockEntity) {
+        if (level.getBlockEntity(pos) instanceof CrateBlockEntity crateBlockEntity) {
             if (!level.isClientSide()) {
                 player.openMenu(new SimpleMenuProvider(crateBlockEntity, Component.translatable("container.bountifulseals.crate")), pos);
                 return ItemInteractionResult.SUCCESS;
@@ -98,7 +97,6 @@ public class CrateBlock extends BaseEntityBlock {
 
         return ItemInteractionResult.SUCCESS;
     }
-
 
 
     @javax.annotation.Nullable

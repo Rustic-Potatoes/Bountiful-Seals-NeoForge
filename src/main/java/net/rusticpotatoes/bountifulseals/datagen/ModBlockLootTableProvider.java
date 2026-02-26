@@ -6,10 +6,7 @@ import net.minecraft.data.loot.BlockLootSubProvider;
 import net.minecraft.world.flag.FeatureFlags;
 import net.minecraft.world.level.block.Block;
 import net.rusticpotatoes.bountifulseals.block.ModBlocks;
-import net.rusticpotatoes.bountifulseals.item.ModItems;
 
-import java.util.Collection;
-import java.util.Collections;
 import java.util.Set;
 
 public class ModBlockLootTableProvider extends BlockLootSubProvider {

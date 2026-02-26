@@ -13,6 +13,7 @@ import net.rusticpotatoes.bountifulseals.entity.custom.ArcticCodEntity;
 
 public class ArcticCodRenderer extends MobRenderer<ArcticCodEntity, CodModel<ArcticCodEntity>> {
     public static final ModelLayerLocation LAYER_LOCATION = new ModelLayerLocation(ResourceLocation.fromNamespaceAndPath(BountifulSeals.MOD_ID, "arctic_cod"), "root");
+
     public ArcticCodRenderer(EntityRendererProvider.Context context) {
         super(context, new CodModel<>(context.bakeLayer(LAYER_LOCATION)), 0.3F);
     }

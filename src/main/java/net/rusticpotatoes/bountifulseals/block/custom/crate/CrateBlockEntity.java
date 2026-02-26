@@ -4,7 +4,6 @@ import net.minecraft.core.BlockPos;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.nbt.CompoundTag;
-import net.minecraft.nbt.ListTag;
 import net.minecraft.network.chat.Component;
 import net.minecraft.network.protocol.Packet;
 import net.minecraft.network.protocol.game.ClientGamePacketListener;
@@ -24,8 +23,6 @@ import net.minecraft.world.item.Items;
 import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.state.BlockState;
 import net.neoforged.neoforge.items.ItemStackHandler;
-import net.rusticpotatoes.bountifulseals.BountifulSeals;
-import net.rusticpotatoes.bountifulseals.Log;
 import net.rusticpotatoes.bountifulseals.block.ModBlockEntities;
 import net.rusticpotatoes.bountifulseals.screen.menu.CrateMenu;
 import org.jetbrains.annotations.Nullable;
@@ -147,11 +144,10 @@ public class CrateBlockEntity extends BlockEntity implements MenuProvider {
             filter = Items.AIR;
         }
         if (tag.getBoolean("HasItemFrame")) {
-             has_item_frame = true;
+            has_item_frame = true;
         }
 
     }
-
 
 
     @Override

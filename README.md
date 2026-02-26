@@ -14,6 +14,6 @@ This mod is only out for Neoforge 1.21.1 currently.
 
 #### Links:
 
-- Curseforge: TBD
+- Curseforge: [(Rustic's) Bountiful Seals](https://www.curseforge.com/minecraft/mc-mods/bountiful-seals)
 
 ---

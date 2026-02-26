@@ -8,8 +8,8 @@ issueTrackerURL="https://github.com/Rustic-Potatoes/Bountiful-Seals-NeoForge-1.2
 modId="${mod_id}"
 version="${mod_version}"
 displayName="${mod_name}"
-#updateJSONURL="https://change.me.example.invalid/updates.json" #TODO
-#displayURL="https://change.me.to.your.mods.homepage.example.invalid/" #TODO
+updateJSONURL="https://api.modrinth.com/updates/bountiful-seals/forge_updates.json?neoforge=only"
+displayURL="https://www.curseforge.com/minecraft/mc-mods/bountiful-seals"
 logoFile="icon.png"
 authors="RusticPotatoes"
 description='''

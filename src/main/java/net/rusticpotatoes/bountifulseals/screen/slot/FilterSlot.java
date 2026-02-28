@@ -19,6 +19,24 @@ public class FilterSlot extends Slot {
     }
 
     @Override
+    public boolean isFake() {
+        return true;
+    }
+
+    @Override
+    public ItemStack safeInsert(ItemStack stack, int increment) {
+        if (!stack.isEmpty() && this.block_entity.isEmpty() && (this.block_entity.getFilter() == Items.AIR)) {
+            if (stack.getItem() instanceof BlockItem blockItem) {
+                if (blockItem.getBlock().defaultBlockState().is(BlockTags.SHULKER_BOXES)) {
+                    return stack;
+                }
+            }
+            block_entity.setFilter(stack.getItem());
+        }
+        return stack;
+    }
+
+    @Override
     public boolean mayPlace(ItemStack stack) {
         if (!stack.isEmpty() && this.block_entity.isEmpty() && (this.block_entity.getFilter() == Items.AIR)) {
             if (stack.getItem() instanceof BlockItem blockItem) {
@@ -26,9 +44,21 @@ public class FilterSlot extends Slot {
                     return false;
                 }
             }
-            block_entity.setFilter(stack.getItem());
+            return true;
         }
         return false;
+    }
+
+    @Override
+    public void set(ItemStack stack) {
+        if (!stack.isEmpty() && this.block_entity.isEmpty() && (this.block_entity.getFilter() == Items.AIR)) {
+            if (stack.getItem() instanceof BlockItem blockItem) {
+                if (blockItem.getBlock().defaultBlockState().is(BlockTags.SHULKER_BOXES)) {
+                    return;
+                }
+            }
+            block_entity.setFilter(stack.getItem());
+        }
     }
 
     @Override

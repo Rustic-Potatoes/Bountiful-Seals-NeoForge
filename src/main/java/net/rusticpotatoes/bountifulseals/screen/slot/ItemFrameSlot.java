@@ -18,7 +18,6 @@ public class ItemFrameSlot extends Slot {
 
     @Override
     public boolean mayPlace(ItemStack stack) {
-        //  BountifulSeals.LOGGER.debug("mayplace");
         return (stack.getItem() == Items.ITEM_FRAME)
                 && !block_entity.hasItemFrame();
     }

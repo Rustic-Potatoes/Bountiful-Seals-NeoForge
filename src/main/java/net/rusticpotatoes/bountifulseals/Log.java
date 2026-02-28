@@ -10,6 +10,10 @@ public class Log {
         LOGGER.info(message);
     }
 
+    public static void info(Object message) {
+        LOGGER.info(String.valueOf(message));
+    }
+
     public static void error(String message) {
         LOGGER.error(message);
     }

@@ -1,5 +1,6 @@
 {
   "values": [
-    "#bountifulseals:harp_seal_foods"
+    "minecraft:cod",
+    "bountifulseals:arctic_cod"
   ]
 }

@@ -19,6 +19,11 @@ import net.rusticpotatoes.bountifulseals.screen.slot.ItemFrameSlot;
 
 
 public class CrateMenu extends AbstractContainerMenu {
+    public static final int CRATE_MENU_X_OFSET = 30;
+    public static final int CRATE_MENU_Y_OFSET = 41;
+    public static final int INVENTORY_MENU_X_OFSET = 48;
+    public static final int INVENTORY_MENU_Y_OFSET = 163;
+
     public final CrateBlockEntity blockEntity;
     private final Level level;
 
@@ -32,16 +37,25 @@ public class CrateMenu extends AbstractContainerMenu {
         this.blockEntity = ((CrateBlockEntity) blockEntity);
         this.level = inv.player.level();
 
-        addPlayerInventory(inv);
-        addPlayerHotbar(inv);
-
-        for (int j = 0; j < 6; j++) {
-            for (int k = 0; k < 11; k++) {
-                this.addSlot(new FilterLockingSlot(this.blockEntity, this.blockEntity.inventory, (k + j * 11), -10 + k * 18, 7 + j * 18));
+        for (int y = 0; y < 3; ++y) {
+            for (int x = 0; x < 9; ++x) {
+                this.addSlot(new Slot(inv, x + y * 9 + 9, INVENTORY_MENU_X_OFSET + x * 18, INVENTORY_MENU_Y_OFSET + y * 18));
             }
         }
-        this.addSlot(new FilterSlot(this.blockEntity, 0, 170, -15));
-        this.addSlot(new ItemFrameSlot(this.blockEntity, 0, 134, -15));
+
+        for (int x = 0; x < 9; ++x) {
+            this.addSlot(new Slot(inv, x, INVENTORY_MENU_X_OFSET + x * 18, INVENTORY_MENU_Y_OFSET + 3 * 18 + 4));
+        }
+
+        for (int y = 0; y < 6; y++) {
+            for (int x = 0; x < 11; x++) {
+                this.addSlot(new FilterLockingSlot(this.blockEntity, this.blockEntity.inventory, (x + y * 11), CRATE_MENU_X_OFSET + x * 18, CRATE_MENU_Y_OFSET + y * 18));
+            }
+        }
+
+        this.addSlot(new ItemFrameSlot(this.blockEntity, 0, CRATE_MENU_X_OFSET + 8 * 18, CRATE_MENU_Y_OFSET - 22));
+
+        this.addSlot(new FilterSlot(this.blockEntity, 0, CRATE_MENU_X_OFSET + 10 * 18, CRATE_MENU_Y_OFSET - 22));
 
     }
 
@@ -90,21 +104,5 @@ public class CrateMenu extends AbstractContainerMenu {
     public boolean stillValid(Player player) {
         return stillValid(ContainerLevelAccess.create(level, blockEntity.getBlockPos()), player, ModBlocks.CRATE.get());
     }
-
-    private void addPlayerInventory(Inventory playerInventory) {
-        for (int i = 0; i < 3; ++i) {
-            for (int l = 0; l < 9; ++l) {
-                this.addSlot(new Slot(playerInventory, l + i * 9 + 9, 8 + l * 18, 129 + i * 18));
-            }
-        }
-    }
-
-    private void addPlayerHotbar(Inventory playerInventory) {
-        for (int i = 0; i < 9; ++i) {
-            this.addSlot(new Slot(playerInventory, i, 8 + i * 18, 187));
-        }
-    }
-
-
 }
 

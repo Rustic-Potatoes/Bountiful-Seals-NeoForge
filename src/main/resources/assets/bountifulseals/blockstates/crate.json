@@ -1,0 +1,19 @@
+{
+  "variants": {
+    "facing=north": {
+      "model": "bountifulseals:block/crate"
+    },
+    "facing=east": {
+      "model": "bountifulseals:block/crate",
+      "y": 90
+    },
+    "facing=south": {
+      "model": "bountifulseals:block/crate",
+      "y": 180
+    },
+    "facing=west": {
+      "model": "bountifulseals:block/crate",
+      "y": 270
+    }
+  }
+}

@@ -1,0 +1,11 @@
+{
+  "values": [
+    "minecraft:grass_block",
+    "minecraft:snow",
+    "minecraft:snow_block",
+    "bountifulseals:snow_clumps",
+    "minecraft:ice",
+    "minecraft:frosted_ice",
+    "minecraft:packed_ice"
+  ]
+}

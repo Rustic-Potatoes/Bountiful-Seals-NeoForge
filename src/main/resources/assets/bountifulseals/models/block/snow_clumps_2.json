@@ -1,0 +1,18 @@
+{
+	"ambientocclusion": false,
+	"textures": {
+		"0": "bountifulseals:block/snow_clumps",
+		"particle": "bountifulseals:block/snow_clumps"
+	},
+	"render_type": "minecraft:cutout",
+	"elements": [
+		{
+			"from": [0, 1, 8],
+			"to": [8, 1, 16],
+			"faces": {
+				"up": {"uv": [0, 8, 8, 16], "texture": "#0"},
+				"down": {"uv": [0, 16, 8, 8], "texture": "#0"}
+			}
+		}
+	]
+}

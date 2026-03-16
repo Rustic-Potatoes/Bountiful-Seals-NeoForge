@@ -1,0 +1,13 @@
+{
+  "variants": {
+    "type=bottom": {
+      "model": "bountifulseals:block/sugar_crystal_slab"
+    },
+    "type=double": {
+      "model": "bountifulseals:block/sugar_crystal_block"
+    },
+    "type=top": {
+      "model": "bountifulseals:block/sugar_crystal_slab_top"
+    }
+  }
+}

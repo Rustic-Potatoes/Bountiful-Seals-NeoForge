@@ -1,0 +1,8 @@
+{
+  "parent": "minecraft:block/outer_stairs",
+  "textures": {
+    "bottom": "bountifulseals:block/sugar_crystal_block",
+    "side": "bountifulseals:block/sugar_crystal_block",
+    "top": "bountifulseals:block/sugar_crystal_block"
+  }
+}

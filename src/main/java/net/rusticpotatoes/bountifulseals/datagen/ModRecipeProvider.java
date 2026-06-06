@@ -8,6 +8,7 @@ import net.minecraft.tags.ItemTags;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.item.crafting.*;
 import net.minecraft.world.level.ItemLike;
+import net.minecraft.world.level.block.Blocks;
 import net.neoforged.neoforge.common.Tags;
 import net.neoforged.neoforge.common.conditions.IConditionBuilder;
 import net.rusticpotatoes.bountifulseals.BountifulSeals;
@@ -26,13 +27,6 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
 
     @Override
     protected void buildRecipes(RecipeOutput recipeOutput) {
-        // ShapelessRecipeBuilder.shapeless(RecipeCategory.MISC, ModItems.BEACH_BALL)
-        //         .requires(Items.LEATHER)
-        //         .requires(Items.WHITE_WOOL)
-        //         .requires(Items.RED_WOOL)
-        //         .requires(Items.STRING)
-        //         .unlockedBy("has_wool", has(ItemTags.WOOL)).save(recipeOutput);
-
 
         ShapelessRecipeBuilder.shapeless(RecipeCategory.MISC, ModItems.SUGAR_CRYSTAL, 4)
                 .requires(ModBlocks.SUGAR_CRYSTAL_BLOCK)
@@ -67,6 +61,29 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
                 .define('D', Tags.Items.COBBLESTONES_DEEPSLATE)
                 .unlockedBy("has_glass", has(Tags.Items.GLASS_BLOCKS)).save(recipeOutput);
 
+        ShapedRecipeBuilder.shaped(RecipeCategory.FOOD, ModItems.CANDY_LOLLIPOP)
+                .pattern("RSY")
+                .pattern("SSS")
+                .pattern("JSB")
+                .define('R', Items.RED_DYE)
+                .define('S', ModItems.SUGAR_CRYSTAL)
+                .define('Y', Items.YELLOW_DYE)
+                .define('J', Items.STICK)
+                .define('B', Items.BLUE_DYE)
+                .unlockedBy("has_sugar_crystal", has(ModItems.SUGAR_CRYSTAL)).save(recipeOutput);
+
+        ShapedRecipeBuilder.shaped(RecipeCategory.FOOD, ModItems.PROPELLER_HAT)
+                .pattern("GIY")
+                .pattern("B R")
+                .define('G', Blocks.GREEN_WOOL)
+                .define('I', Items.IRON_INGOT)
+                .define('Y', Blocks.YELLOW_WOOL)
+                .define('B', Blocks.BLUE_WOOL)
+                .define('R', Blocks.RED_WOOL)
+                .unlockedBy("has_wool", has(ItemTags.WOOL)).save(recipeOutput);
+
+
+
         ShapelessRecipeBuilder.shapeless(RecipeCategory.MISC, ModBlocks.SNOW_CLUMPS, 4)
                 .requires(Items.SNOWBALL, 2)
                 .unlockedBy("has_snowball", has(Items.SNOWBALL)).save(recipeOutput);
@@ -74,6 +91,8 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
         ShapelessRecipeBuilder.shapeless(RecipeCategory.MISC, Items.SNOWBALL, 2)
                 .requires(ModBlocks.SNOW_CLUMPS, 4)
                 .unlockedBy("has_snow_clumps", has(ModBlocks.SNOW_CLUMPS)).save(recipeOutput, "snowball_from_snow_clumps");
+
+
 
 
         smeltingRecipe(recipeOutput, List.of(ModItems.ARCTIC_COD), RecipeCategory.FOOD,

@@ -29,6 +29,8 @@ public class ModCreativeModeTabs {
                         output.accept(ModItems.ARCTIC_COD_BUCKET);
                         output.accept(ModItems.SILLINESS_EXTRACT);
                         output.accept(ModItems.SUGAR_CRYSTAL);
+                        output.accept(ModItems.PROPELLER_HAT);
+                        output.accept(ModItems.CANDY_LOLLIPOP);
 
                         output.accept(ModBlocks.SNOW_CLUMPS);
                         output.accept(ModBlocks.CRATE);

@@ -1,6 +1,8 @@
 {
   "values": [
     "minecraft:grass_block",
+    "minecraft:sand",
+    "minecraft:gravel",
     "minecraft:snow",
     "minecraft:snow_block",
     "bountifulseals:snow_clumps",

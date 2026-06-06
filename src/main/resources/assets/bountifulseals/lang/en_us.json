@@ -6,6 +6,8 @@
   "item.bountifulseals.arctic_cod_bucket": "Bucket of Arctic Cod",
   "item.bountifulseals.silliness_extract": "Silliness Extract",
   "item.bountifulseals.sugar_crystal": "Sugar Crystal",
+  "item.bountifulseals.propeller_hat": "Propeller Hat",
+  "item.bountifulseals.candy_lollipop": "Candy Lollipop",
 
   "item.minecraft.potion.effect.silliness_potion": "Potion of Silliness",
   "item.minecraft.splash_potion.effect.silliness_potion": "Splash Potion of Silliness",
@@ -24,8 +26,8 @@
   "block.bountifulseals.sugar_crystal_stairs": "Sugar Crystal Stairs",
   "block.bountifulseals.sugar_crystal_slab": "Sugar Crystal Slab",
 
-  "entity.mccourse.harp_seal": "Harp Seal",
-  "entity.mccourse.arctic_cod": "Arctic Cod",
+  "entity.bountifulseals.harp_seal": "Harp Seal",
+  "entity.bountifulseals.arctic_cod": "Arctic Cod",
 
   "container.bountifulseals.crate": "Item Crate",
   "container.bountifulseals.crate.item_frame_tooltip": "Accepts an Item Frame; Whether to render an item",

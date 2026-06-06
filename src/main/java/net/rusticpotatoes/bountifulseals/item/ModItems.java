@@ -13,6 +13,7 @@ import net.neoforged.neoforge.registries.DeferredRegister;
 import net.rusticpotatoes.bountifulseals.BountifulSeals;
 import net.rusticpotatoes.bountifulseals.block.ModBlocks;
 import net.rusticpotatoes.bountifulseals.entity.ModEntities;
+import net.rusticpotatoes.bountifulseals.item.custom.HatItem;
 
 import java.util.List;
 
@@ -32,6 +33,9 @@ public class ModItems {
     public static final DeferredItem<Item> COOKED_ARCTIC_COD = ITEMS.register("cooked_arctic_cod",
             () -> new Item(new Item.Properties().food(ModFoods.COOKED_ARCTIC_COD)));
 
+    public static final DeferredItem<Item> CANDY_LOLLIPOP = ITEMS.register("candy_lollipop",
+            () -> new Item(new Item.Properties().food(ModFoods.CANDY_LOLLIPOP).stacksTo(1)));
+
     public static final DeferredItem<Item> HARP_SEAL_SPAWN_EGG = ITEMS.register("harp_seal_spawn_egg",
             () -> new DeferredSpawnEggItem(ModEntities.HARP_SEAL, 0xcecec6, 0x676664, new Item.Properties()));
 
@@ -44,6 +48,9 @@ public class ModItems {
     public static final DeferredItem<Item> SUGAR_CRYSTAL = ITEMS.register("sugar_crystal",
             () -> new Item(new Item.Properties()));
 
+    public static final DeferredItem<Item> PROPELLER_HAT = ITEMS.register("propeller_hat",
+            () -> new HatItem(new Item.Properties()));
+
     public static final DeferredItem<Item> SNOW_GLOBE = ITEMS.register("snow_globe",
             () -> new BlockItem(ModBlocks.SNOW_GLOBE.get(), new Item.Properties().stacksTo(16)) {
                 @Override
@@ -54,7 +61,6 @@ public class ModItems {
                     super.appendHoverText(stack, context, tooltipComponents, tooltipFlag);
                 }
             });
-
 
     public static void register(IEventBus eventBus) {
         ITEMS.register(eventBus);

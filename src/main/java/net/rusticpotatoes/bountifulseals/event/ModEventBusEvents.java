@@ -58,15 +58,15 @@ public class ModEventBusEvents {
     public static void registerSpawnPlacement(RegisterSpawnPlacementsEvent event) {
         event.register(
                 ModEntities.HARP_SEAL.get(),
-                SpawnPlacementTypes.ON_GROUND,
-                Heightmap.Types.MOTION_BLOCKING_NO_LEAVES,
+                SpawnPlacementTypes.NO_RESTRICTIONS,
+                Heightmap.Types.WORLD_SURFACE,
                 HarpSealEntity::checkHarpSealSpawnRules,
                 RegisterSpawnPlacementsEvent.Operation.REPLACE
         );
         event.register(
                 ModEntities.ARCTIC_COD.get(),
                 SpawnPlacementTypes.IN_WATER,
-                Heightmap.Types.MOTION_BLOCKING_NO_LEAVES,
+                Heightmap.Types.OCEAN_FLOOR,
                 ArcticCodEntity::checkArcticCodSpawnRules,
                 RegisterSpawnPlacementsEvent.Operation.REPLACE
         );

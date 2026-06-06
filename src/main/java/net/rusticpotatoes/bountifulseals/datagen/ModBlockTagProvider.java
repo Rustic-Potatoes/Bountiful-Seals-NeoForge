@@ -22,6 +22,8 @@ public class ModBlockTagProvider extends BlockTagsProvider {
     protected void addTags(HolderLookup.Provider provider) {
         tag(ModTags.Blocks.HARP_SEAL_SPAWNABLE_ON)
                 .add(Blocks.GRASS_BLOCK)
+                .add(Blocks.SAND)
+                .add(Blocks.GRAVEL)
                 .add(Blocks.SNOW)
                 .add(Blocks.SNOW_BLOCK)
                 .add(ModBlocks.SNOW_CLUMPS.get())

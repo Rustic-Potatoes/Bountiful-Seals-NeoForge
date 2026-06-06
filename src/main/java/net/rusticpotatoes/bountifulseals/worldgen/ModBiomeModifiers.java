@@ -47,11 +47,12 @@ public class ModBiomeModifiers {
         context.register(SPAWN_HARP_SEAL, new BiomeModifiers.AddSpawnsBiomeModifier(
                 HolderSet.direct(
                         biomes.getOrThrow(Biomes.SNOWY_BEACH),
+                        biomes.getOrThrow(Biomes.SNOWY_PLAINS),
                         biomes.getOrThrow(Biomes.ICE_SPIKES),
                         biomes.getOrThrow(Biomes.FROZEN_OCEAN),
                         biomes.getOrThrow(Biomes.DEEP_FROZEN_OCEAN)
                 ),
-                List.of(new MobSpawnSettings.SpawnerData(ModEntities.HARP_SEAL.get(), 50, 3, 5))));
+                List.of(new MobSpawnSettings.SpawnerData(ModEntities.HARP_SEAL.get(), 20, 3, 5))));
 
         context.register(SPAWN_ARCTIC_COD, new BiomeModifiers.AddSpawnsBiomeModifier(
                 HolderSet.direct(
@@ -60,7 +61,7 @@ public class ModBiomeModifiers {
                         biomes.getOrThrow(Biomes.FROZEN_OCEAN),
                         biomes.getOrThrow(Biomes.DEEP_FROZEN_OCEAN)
                 ),
-                List.of(new MobSpawnSettings.SpawnerData(ModEntities.ARCTIC_COD.get(), 15, 3, 6))));
+                List.of(new MobSpawnSettings.SpawnerData(ModEntities.ARCTIC_COD.get(), 20, 3, 6))));
     }
 }
 

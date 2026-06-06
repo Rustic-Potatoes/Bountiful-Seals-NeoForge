@@ -23,6 +23,7 @@ import net.minecraft.world.entity.item.ItemEntity;
 import net.minecraft.world.entity.monster.Creeper;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.item.Items;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.LevelAccessor;
 import net.minecraft.world.level.biome.Biome;
@@ -42,7 +43,6 @@ public class HarpSealEntity extends Animal {
 
     private static final EntityDataAccessor<Integer> DATA_BOOP_TIMEOUT;
     private int idleAnimTimeout = 0;
-   // private int boopAnimTimeout = 0;
 
     public static AttributeSupplier.Builder createAttribute() {
         return Animal.createLivingAttributes()
@@ -65,15 +65,14 @@ public class HarpSealEntity extends Animal {
         this.entityData.set(DATA_BOOP_TIMEOUT, state, true);
     }
 
-    private void PlayBoopAnim() {
-        if (this.getBoopTimeout() <= 0) {
+    private void playBoopAnim() {
+        if (this.getBoopTimeout() <= 0 && !this.level().isClientSide()) {
             this.setBoopTimeout(30);
         }
-      //  Log.info(getBoopTimeout());
     }
 
     private boolean canPlayBoopAnim() {
-        return this.getBoopTimeout() <= 0 &&!this.isBaby();
+        return this.getBoopTimeout() <= 0 && !this.isBaby();
     }
 
     private void setupAnimationsStates() {
@@ -83,20 +82,13 @@ public class HarpSealEntity extends Animal {
         } else {
             --this.idleAnimTimeout;
         }
-     //   Log.info(this.getBoopTimeout());
-        // Log.info("worked" + getBoopTimeout());
         if (this.getBoopTimeout() == 30) {
             this.boopAnimationState.start(this.tickCount);
         }
     }
 
     public static boolean checkHarpSealSpawnRules(EntityType<HarpSealEntity> harpSeal, LevelAccessor level, MobSpawnType spawnType, BlockPos pos, RandomSource random) {
-        Holder<Biome> holder = level.getBiome(pos);
-        if (!holder.is(Biomes.DEEP_FROZEN_OCEAN) && !holder.is(Biomes.FROZEN_OCEAN) && !holder.is(Biomes.ICE_SPIKES)) {
             return level.getBlockState(pos.below()).is(ModTags.Blocks.HARP_SEAL_SPAWNABLE_ON);
-        } else {
-            return level.getBlockState(pos.below()).is(Blocks.ICE);
-        }
     }
 
     public HarpSealEntity(EntityType<? extends Animal> entityType, Level level) {
@@ -128,31 +120,27 @@ public class HarpSealEntity extends Animal {
 
     @Override
     public InteractionResult mobInteract(Player player, InteractionHand hand) {
-        if (hand == InteractionHand.MAIN_HAND) {
+        super.mobInteract(player, hand);
+        ItemStack mainHand = player.getMainHandItem();
+        if (mainHand.is(Items.AIR)) {
+            if (canPlayBoopAnim()) {
+                playBoopAnim();
+                return InteractionResult.SUCCESS_NO_ITEM_USED;
+            } else return InteractionResult.PASS;
+        } else if (mainHand.is(ModItems.SUGAR_CRYSTAL)) {
+            if (canPlayBoopAnim()) {
+                if (this.level().isClientSide()) {
+                    this.addParticlesAroundSelf(ParticleTypes.HAPPY_VILLAGER);
+                } else {
+                    playBoopAnim();
+                    ItemStack stack = new ItemStack(mainHand.getItem(), mainHand.getCount() - 1);
+                    player.setItemInHand(InteractionHand.MAIN_HAND, stack);
+                    ItemStack spawnedStack = new ItemStack(ModItems.SILLINESS_EXTRACT.get(), 1);
+                    ItemEntity spawnedEntityStack = new ItemEntity(this.level(), this.blockPosition().getX() + 0.5, this.blockPosition().getY() + 0.5, this.blockPosition().getZ() + 0.5, spawnedStack);
 
-            if (player.isHolding(ModItems.HARP_SEAL_SPAWN_EGG.get())) return InteractionResult.PASS;
-
-            if (!this.level().isClientSide()) {
-                if (canPlayBoopAnim()) {
-                    PlayBoopAnim();
-                    if (player.isHolding(ModItems.SUGAR_CRYSTAL.get())) {
-                        player.setItemInHand(hand, new ItemStack(player.getItemInHand(hand).getItem(), player.getItemInHand(hand).getCount() - 1));
-                        ItemStack stack = new ItemStack(ModItems.SILLINESS_EXTRACT.get(), 1);
-                        this.level().addFreshEntity(new ItemEntity(this.level(),
-                                this.blockPosition().getX() + 0.5, this.blockPosition().getY() + 0.5, this.blockPosition().getZ() + 0.5, stack));
-                        return InteractionResult.SUCCESS;
-                    } else {
-                        return InteractionResult.SUCCESS_NO_ITEM_USED;
-                    }
-                }
-            } else {
-                if (canPlayBoopAnim()) {
-                    if (player.isHolding(ModItems.SUGAR_CRYSTAL.get())) {
-                        this.addParticlesAroundSelf(ParticleTypes.HAPPY_VILLAGER);
-                    }
+                    this.level().addFreshEntity(spawnedEntityStack);
                     return InteractionResult.SUCCESS;
                 }
-
             }
         }
         return InteractionResult.PASS;

@@ -1,0 +1,34 @@
+{
+  "display": {
+    "icon": {
+      "id": "bountifulseals:candy_lollipop"
+    },
+    "title": "Full Whimsy",
+    "description": "Own a Propeller Hat and a Candy Lollipop and set off on your journey",
+    "frame": "task",
+    "show_toast": true,
+    "announce_to chat": true,
+    "hidden": false
+  },
+  "parent": "minecraft:husbandry/root",
+  "criteria": {
+    "has_items": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": "bountifulseals:propeller_hat",
+            "count": 1
+          },
+          {
+            "items": "bountifulseals:candy_lollipop",
+            "count": 1
+          }
+        ]
+      }
+    }
+  },
+  "requirements": [
+    ["has_items"]
+  ]
+}

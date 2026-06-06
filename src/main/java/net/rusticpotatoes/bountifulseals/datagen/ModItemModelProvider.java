@@ -3,6 +3,7 @@ package net.rusticpotatoes.bountifulseals.datagen;
 import net.minecraft.data.PackOutput;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.level.block.Block;
+import net.neoforged.fml.common.Mod;
 import net.neoforged.neoforge.client.model.generators.ItemModelProvider;
 import net.neoforged.neoforge.common.data.ExistingFileHelper;
 import net.neoforged.neoforge.registries.DeferredBlock;
@@ -22,7 +23,7 @@ public class ModItemModelProvider extends ItemModelProvider {
         basicItem(ModItems.ARCTIC_COD_BUCKET.get());
         basicItem(ModItems.SILLINESS_EXTRACT.get());
         basicItem(ModItems.SUGAR_CRYSTAL.get());
-
+        handheldItem(ModItems.CANDY_LOLLIPOP.get());
         withExistingParent(ModItems.HARP_SEAL_SPAWN_EGG.getId().getPath(), mcLoc("item/template_spawn_egg"));
         withExistingParent(ModItems.ARCTIC_COD_SPAWN_EGG.getId().getPath(), mcLoc("item/template_spawn_egg"));
     }

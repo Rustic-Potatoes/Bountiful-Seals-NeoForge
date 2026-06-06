@@ -21,8 +21,6 @@ import java.util.function.Supplier;
 public class ModBlocks {
     public static final DeferredRegister.Blocks BLOCKS = DeferredRegister.createBlocks(BountifulSeals.MOD_ID);
 
-
-
     public static final DeferredBlock<Block> SNOW_CLUMPS = registerBlock("snow_clumps",
             () -> new SnowClumpsBlock(BlockBehaviour.Properties.of()
                     .mapColor(MapColor.SNOW).noCollission().sound(SoundType.SNOW)

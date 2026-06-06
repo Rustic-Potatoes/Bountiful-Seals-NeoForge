@@ -1,0 +1,30 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "B": {
+      "item": "minecraft:blue_dye"
+    },
+    "J": {
+      "item": "minecraft:stick"
+    },
+    "R": {
+      "item": "minecraft:red_dye"
+    },
+    "S": {
+      "item": "bountifulseals:sugar_crystal"
+    },
+    "Y": {
+      "item": "minecraft:yellow_dye"
+    }
+  },
+  "pattern": [
+    "RSY",
+    "SSS",
+    "JSB"
+  ],
+  "result": {
+    "count": 1,
+    "id": "bountifulseals:candy_lollipop"
+  }
+}
